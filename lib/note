@@ -1,0 +1,3 @@
+Folder data itu isinya buat konfigurasi backend sistem nya
+Folder ui itu isinya tampilan aplikasi sama viewmodelnya. Jadi kalo mau nyimpen viewmodelnya itu berdasarkan
+fitur nya, ada fitur auth, dashboard, onboarding dll. Contoh isi folder nya kaya folder onboarding.
