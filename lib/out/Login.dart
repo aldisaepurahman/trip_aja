@@ -57,7 +57,7 @@ class LoginState extends State<Login> {
                       hintText: 'Email',
                       contentPadding: const EdgeInsets.all(8),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)))
+                          borderRadius: BorderRadius.circular(12))),
               ),
             ),
             Padding(
