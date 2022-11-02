@@ -22,12 +22,15 @@ class LoginState extends State<Login> {
       home: Scaffold(
         body: ListView(
           children: [
-            const Text(
-              "Login",
-              style: TextStyle(
-                fontFamily: "poppins",
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            Container(
+              margin: EdgeInsets.only(top:23, left:25, right:25 ,bottom:25),
+              child: Text(
+                "Login",
+                style: TextStyle(
+                  fontFamily: "poppins",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
               ),
             ),
             Center(
@@ -37,42 +40,52 @@ class LoginState extends State<Login> {
                 height: 300,
               )
             ),
-            const Text(
-              "Email",
-              style: TextStyle(
-                fontFamily: "poppins",
-                fontWeight: FontWeight.bold,
+            Padding(
+                padding: EdgeInsets.only(top: 0, bottom: 25, left: 25, right: 25),
+                child: Text(
+                "Email",
+                style: TextStyle(
+                  fontFamily: "poppins",
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Center(
+            ) ,
+            Padding(
+              padding: EdgeInsets.only(top: 0, bottom: 25, left: 25, right: 25),
               child: TextField(
                   decoration: InputDecoration(
                       hintText: 'Email',
                       contentPadding: const EdgeInsets.all(8),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5)))
+                          borderRadius: BorderRadius.circular(12))),
               ),
             ),
-            const Text(
-              "Password",
-              style: TextStyle(
-                fontFamily: "poppins",
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Center(
+            Padding(
+                padding: EdgeInsets.only(top: 0, bottom: 25, left: 25, right: 25),
+                child: Text(
+                  "Password",
+                  style: TextStyle(
+                    fontFamily: "poppins",
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ) ,
+            Padding (
+              padding: EdgeInsets.only(top: 0, bottom: 25, left: 25, right: 25),
               child: TextField(
                   decoration: InputDecoration(
                       hintText: 'Password',
                       contentPadding: const EdgeInsets.all(8),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5)))
+                          borderRadius: BorderRadius.circular(12)))
               )
             ),
-            Center(
+            Padding (
+              padding: EdgeInsets.only(top: 16, bottom: 25, left: 25, right: 25),
               child: ElevatedButton (
                 style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 95, 95, 255) //primary 500
+                  primary: Color.fromARGB(255, 95, 95, 255) //primary 500,
+
                 ),
                 onPressed: () {
                   setState(() {
@@ -87,7 +100,8 @@ class LoginState extends State<Login> {
                   ),
                 ),
               ),
-            )
+            ),
+
             ]
           ),
         )
