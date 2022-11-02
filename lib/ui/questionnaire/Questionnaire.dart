@@ -48,6 +48,7 @@ class _QuestionnaireState extends State<Questionnaire>
   _setProgressAnim(double maxWidth, int pageIndex) {
     setState(() {
       currentPage = pageIndex;
+      print(maxWidth);
       growStepWidth = maxWidth / totalPages;
       beginWidth = growStepWidth * (pageIndex - 1);
       endWidth = growStepWidth * pageIndex;
@@ -59,12 +60,14 @@ class _QuestionnaireState extends State<Questionnaire>
     _progressAnimController.forward();
   }
 
+  void dialogue() {}
+
   @override
   Widget build(BuildContext context) {
     var maxWidth = MediaQuery
         .of(context)
         .size
-        .width;
+        .width - 48;
 
     return Scaffold(
       backgroundColor: const Color(0xff5f5fff),
@@ -73,53 +76,136 @@ class _QuestionnaireState extends State<Questionnaire>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Center(
-              child: Text(
-                "Questionnaire",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "Poppins",
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: Text(
-                "Question $currentPage / $totalPages",
-                style:
-                const TextStyle(fontFamily: "Poppins", color: Colors.white),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: Container(
-                color: Colors.transparent,
-                child: Row(
-                  children: <Widget>[
-                    AnimatedProgressBar(
-                      animation: _progressAnim,
+            Container(
+              height: 120.0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Center(
+                    child: Text(
+                      "Questionnaire",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "Poppins",
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold),
                     ),
-                    Expanded(
-                      child: Container(
-                        height: 6.0,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5.0),
-                            color: Colors.white
-                        ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: Text(
+                      "Question $currentPage / $totalPages",
+                      style:
+                      const TextStyle(
+                          fontFamily: "Poppins", color: Colors.white),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: Container(
+                      color: Colors.transparent,
+                      child: Row(
+                        children: <Widget>[
+                          AnimatedProgressBar(
+                            animation: _progressAnim,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 6.0,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  color: Colors.white
+                              ),
+                            ),
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
-            Padding(
-                padding: const EdgeInsets.only(top: 16.0),
+            Flexible(
                 child: SingleChildScrollView(
-                  child: Column(
-                    children: [],
-                  ),
+                    child: Padding(
+                        padding: const EdgeInsets.only(top: 4.0, bottom: 16.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Colors.white
+                          ),
+                          constraints: BoxConstraints(
+                              maxHeight: MediaQuery.of(context).size.height
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: PageView.builder(
+                                    controller: _controller,
+                                    itemCount: totalPages,
+                                    itemBuilder: (context, index) {
+                                      return _pages[index % totalPages];
+                                    },
+                                    onPageChanged: (i) {
+                                      _progressAnimController.reset();
+                                      _setProgressAnim(maxWidth, i + 1);
+                                    },
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                                  child: Row(
+                                    mainAxisAlignment: (currentPage == 1)
+                                        ? MainAxisAlignment.end
+                                        : MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      if (currentPage > 1) OutlinedButton(
+                                        onPressed: () {
+                                          _controller.previousPage(
+                                              duration: _duration, curve: _curve);
+                                        },
+                                        style: ButtonStyle(
+                                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                                          side: MaterialStateProperty.all(
+                                            const BorderSide(color: Color(0xff5f5fff))
+                                          )
+                                        ),
+                                        child: const Text(
+                                          "Previous",
+                                          style: TextStyle(
+                                              color: Color(0xff5f5fff),
+                                              fontFamily: "Poppins",
+                                              fontWeight: FontWeight.bold
+                                          ),
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            (currentPage < totalPages)
+                                                ? _controller.nextPage(duration: _duration, curve: _curve)
+                                                : dialogue();
+                                          },
+                                          child: Text(
+                                            (currentPage < totalPages)
+                                                ? "Next"
+                                                : "Finish",
+                                            style: const TextStyle(
+                                                fontFamily: "Poppins",
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          )
+                                      )
+                                    ],
+                                  )
+                              ),
+                            ],
+                          ),
+                        )
+                    )
                 )
             ),
           ],
