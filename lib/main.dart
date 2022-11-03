@@ -23,10 +23,10 @@ class SplashScreen extends StatefulWidget {
 class _MyAppState extends State<SplashScreen> {
 
   startSplashScreen() async {
-    var duration = const Duration(seconds: 5);
+    var duration = const Duration(seconds: 2);
     return Timer(duration, () {
       Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => OnboardingView()));
+          MaterialPageRoute(builder: (context) => Recommendation()));
     });
   }
 
