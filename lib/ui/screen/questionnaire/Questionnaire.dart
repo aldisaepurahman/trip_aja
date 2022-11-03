@@ -237,7 +237,7 @@ class _QuestionnaireState extends State<Questionnaire>
                                               onPressed: () {
                                                 (currentPage < totalPages)
                                                     ? _controller.nextPage(duration: _duration, curve: _curve)
-                                                    : Navigator.of(context).push(
+                                                    : Navigator.of(context).pushReplacement(
                                                     MaterialPageRoute(builder: (context) => Recommendation()));
                                               },
                                               child: Text(
