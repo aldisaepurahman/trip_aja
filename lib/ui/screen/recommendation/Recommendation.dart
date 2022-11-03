@@ -76,7 +76,7 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
   setAnimationsChecked() async {
     var duration = const Duration(seconds: 2);
     return Timer(duration, () {
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const Navigations()));
     });
   }
