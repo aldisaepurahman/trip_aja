@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/ui/recommendation/Recommendation.dart';
 import 'package:heal_and_go/utils/QuestionItem.dart';
 
 class Questionnaire extends StatefulWidget {
@@ -21,7 +22,7 @@ class _QuestionnaireState extends State<Questionnaire>
   double beginWidth = 0.0;
   double endWidth = 0.0;
   int currentPage = 0;
-  int totalPages = _question.length;
+  int totalPages = question.length;
 
   @override
   void initState() {
@@ -151,13 +152,13 @@ class _QuestionnaireState extends State<Questionnaire>
                                         Padding(
                                           padding: const EdgeInsets.only(top: 12.0),
                                           child: Text(
-                                            _question[index].question,
+                                            question[index].question,
                                             style: const TextStyle(
                                                 fontFamily: "Poppins", fontWeight: FontWeight.bold),
                                           ),
                                         ),
-                                        for (var i = 0; i < _question[index].choices.length; i++)
-                                          if (_question[index].multiple_choice)
+                                        for (var i = 0; i < question[index].choices.length; i++)
+                                          if (question[index].multiple_choice)
                                             Padding(
                                                 padding: const EdgeInsets.only(top: 12.0),
                                                 child: Container(
@@ -168,14 +169,14 @@ class _QuestionnaireState extends State<Questionnaire>
                                                     child: CheckboxListTile(
                                                       controlAffinity: ListTileControlAffinity.leading,
                                                       title: Text(
-                                                        _question[index].choices[i],
+                                                        question[index].choices[i],
                                                         style: const TextStyle(
                                                             fontFamily: "Poppins", color: Colors.grey, fontSize: 13.0),
                                                       ),
-                                                      value: _question[index].groupValue[i],
+                                                      value: question[index].groupValue[i],
                                                       onChanged: (value) {
                                                         setState(() {
-                                                          _question[index].groupValue[i] = !_question[index].groupValue[i];
+                                                          question[index].groupValue[i] = !question[index].groupValue[i];
                                                         });
                                                       },
 
@@ -192,15 +193,15 @@ class _QuestionnaireState extends State<Questionnaire>
                                                   ),
                                                   child: RadioListTile(
                                                     title: Text(
-                                                      _question[index].choices[i],
+                                                      question[index].choices[i],
                                                       style:
                                                       const TextStyle(fontFamily: "Poppins", color: Colors.grey, fontSize: 14.0),
                                                     ),
-                                                    value: _question[index].choices[i],
-                                                    groupValue: _question[index].groupValue,
+                                                    value: question[index].choices[i],
+                                                    groupValue: question[index].groupValue,
                                                     onChanged: (value) {
                                                       setState(() {
-                                                        _question[index].groupValue = value;
+                                                        question[index].groupValue = value;
                                                       });
                                                     },
                                                   ),
@@ -249,7 +250,8 @@ class _QuestionnaireState extends State<Questionnaire>
                                       onPressed: () {
                                         (currentPage < totalPages)
                                             ? _controller.nextPage(duration: _duration, curve: _curve)
-                                            : dialogue();
+                                            : Navigator.of(context).push(
+                                            MaterialPageRoute(builder: (context) => Recommendation()));
                                       },
                                       child: Text(
                                         (currentPage < totalPages)
@@ -289,87 +291,3 @@ class AnimatedProgressBar extends AnimatedWidget {
     );
   }
 }
-
-final _question = [
-  QuestionItem(
-      question: "🔥 If you want to go get some healing done, who do you want to do it with ?",
-      choices: [
-        "Travels Alone",
-        "A Couple",
-        "Family With Children",
-        "Family Without Children",
-        "Group Of Friends"
-      ],
-      groupValue: "",
-      multiple_choice: false
-  ),
-  QuestionItem(
-      question: "👪 what is the age gap between the participants ?",
-      choices: [
-        "Children (0–13)",
-        "Adolscent (14–20)",
-        "Adult (21–45)",
-        "Middle Age (46–64)",
-        "Senior Adult (> 64)"
-      ],
-      groupValue: [false, false, false, false, false],
-      multiple_choice: true
-  ),
-  QuestionItem(
-      question: "📸 What kind of activity would you like to do ?",
-      choices: [
-        "Visit museum/zoo/historical place",
-        "Go on Adventure tour",
-        "See the sights",
-        "Take picture or selfie",
-        "Going to festival/amusement park",
-        "Photography",
-        "Leisurely walk",
-        "Shopping"
-      ],
-      groupValue: [false, false, false, false, false, false, false, false],
-      multiple_choice: true
-  ),
-  QuestionItem(
-      question: "🏊 Are you going to do sports too during your healing ?",
-      choices: ["No Sports", "Traditional sports (Swimming, Hiking, Golf)"],
-      groupValue: "",
-      multiple_choice: false
-  ),
-  QuestionItem(
-      question: "⏱️ How much time do you want to spend during your healing ?",
-      choices: [
-        "Less than a day",
-        "1-3 Days",
-        "1 week",
-        "2 weeks",
-        "More than 3 weeks"
-      ],
-      groupValue: "",
-      multiple_choice: false
-  ),
-  QuestionItem(
-      question: "🗓️ When are you planning to go ?",
-      choices: [
-        "March - May",
-        "June - August",
-        "September - November",
-        "Desember - February"
-      ],
-      groupValue: "",
-      multiple_choice: false
-  ),
-  QuestionItem(
-      question: "♀️♂️ Which of the following most accurately describe you ?",
-      choices: ["Female", "Male"],
-      groupValue: "",
-      multiple_choice: false
-  ),
-  QuestionItem(
-      question: "💰 How much budget can you allocate ?",
-      choices: ["< 500rb", "500rb - 3jt", "4jt - 7.5jt", "> 7.5jt"],
-      groupValue: "",
-      multiple_choice: false
-  )
-];
-

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/ui/onboarding/OnboardingView.dart';
 import 'package:heal_and_go/ui/questionnaire/Questionnaire.dart';
+import 'package:heal_and_go/ui/recommendation/Recommendation.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,7 @@ class _MyAppState extends State<SplashScreen> {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
       Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => Questionnaire()));
+          MaterialPageRoute(builder: (context) => Recommendation()));
     });
   }
 
