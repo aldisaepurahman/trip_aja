@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.heal_and_go">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="heal_and_go"
         android:name="${applicationName}"
