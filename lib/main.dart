@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:heal_and_go/out/Login.dart';
+import 'package:heal_and_go/auth/Login.dart';
 
 void main() {
   runApp(MyApp());
