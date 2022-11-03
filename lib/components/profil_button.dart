@@ -30,7 +30,7 @@ class Profil_Button extends StatelessWidget {
                     padding: const EdgeInsets.all(20),
                   ),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

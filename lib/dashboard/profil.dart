@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/components/profil_button.dart';
+import 'package:heal_and_go/components/NavigationBar.dart';
 
 class Profil extends StatefulWidget {
   const Profil({Key? key}) : super(key: key);
@@ -22,10 +23,10 @@ class ProfilState extends State<Profil> {
         title: 'Heal & Go',
         home: Scaffold(
             body: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
           children: [
             Container(
-              margin: EdgeInsets.symmetric(vertical: 23),
+              margin: EdgeInsets.only(top: 25, bottom: 35),
+              padding: EdgeInsets.symmetric(horizontal: 25),
               child: Text("Profile",
                   textAlign: TextAlign.center,
                   style: const TextStyle(
@@ -38,11 +39,11 @@ class ProfilState extends State<Profil> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                    margin: EdgeInsets.only(right: 30),
-                    height: 100,
-                    width: 100,
+                    margin: EdgeInsets.only(left: 20),
+                    height: 150,
+                    width: 150,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(30),
                         image: const DecorationImage(
                             image: AssetImage("images/profil.jpg")))),
                 Container(
@@ -59,7 +60,7 @@ class ProfilState extends State<Profil> {
               ],
             ),
             Container(
-                margin: EdgeInsets.only(top: 50, bottom: 50),
+                margin: EdgeInsets.symmetric(horizontal: 35, vertical: 50),
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                 decoration: BoxDecoration(
                     color: Colors.black12,
@@ -90,6 +91,7 @@ class ProfilState extends State<Profil> {
                         ikon: Icons.logout, color: Colors.red, menu: "Logout"),
                   ],
                 )),
+            MyNavigationBar()
           ],
         )));
   }
