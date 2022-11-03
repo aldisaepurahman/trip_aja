@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:heal_and_go/auth/Login.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:heal_and_go/ui/screen/auth/Login.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -12,6 +13,9 @@ class Register extends StatefulWidget {
 }
 
 class RegisterState extends State<Register> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final pwdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +26,10 @@ class RegisterState extends State<Register> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           children: [
             Container(
-              margin: EdgeInsets.symmetric(vertical: 23),
-              child: Text("Sign up.",
+              margin: const EdgeInsets.symmetric(vertical: 23),
+              child: const Text("Sign up.",
                   textAlign: TextAlign.left,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontFamily: "poppins",
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -33,17 +37,21 @@ class RegisterState extends State<Register> {
             ),
             Image.asset("images/register_illustration.jpg",
                 height: 300, fit: BoxFit.contain),
-            Text("Full name",
-                textAlign: TextAlign.left,
-                style: const TextStyle(
+            const Padding(
+                padding: EdgeInsets.only(top: 10),
+              child: Text("Full name",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
                     fontFamily: "poppins",
                     fontWeight: FontWeight.bold,
-                )),
+                  )),
+            ),
             Container(
-              margin: EdgeInsets.only(top: 10, bottom: 18),
+              margin: const EdgeInsets.only(top: 10, bottom: 18),
               child: TextField(
+                controller: nameController,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person),
+                    prefixIcon: const Icon(Icons.person),
                     hintText: "Full name",
                     hintStyle: const TextStyle(
                       fontFamily: "Poppins",
@@ -52,17 +60,18 @@ class RegisterState extends State<Register> {
                         borderRadius: BorderRadius.circular(12.0))),
               ),
             ),
-            Text("Email",
+            const Text("Email",
                 textAlign: TextAlign.left,
-                style: const TextStyle(
+                style: TextStyle(
                     fontFamily: "poppins",
                     fontWeight: FontWeight.bold,
                 )),
             Container(
-              margin: EdgeInsets.only(top: 10, bottom: 18),
+              margin: const EdgeInsets.only(top: 10, bottom: 18),
               child: TextField(
+                controller: emailController,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.mail),
+                    prefixIcon: const Icon(Icons.mail),
                     hintText: "Email",
                     hintStyle: const TextStyle(
                       fontFamily: "Poppins",
@@ -71,17 +80,19 @@ class RegisterState extends State<Register> {
                         borderRadius: BorderRadius.circular(12.0))),
               ),
             ),
-            Text("Password",
+            const Text("Password",
                 textAlign: TextAlign.left,
-                style: const TextStyle(
+                style: TextStyle(
                     fontFamily: "poppins",
                     fontWeight: FontWeight.bold,
             )),
             Container(
-              margin: EdgeInsets.only(top: 10, bottom: 18),
+              margin: const EdgeInsets.only(top: 10, bottom: 18),
               child: TextField(
+                obscureText: true,
+                controller: pwdController,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock),
                     hintText: "Password",
                     hintStyle: const TextStyle(
                       fontFamily: "Poppins",
@@ -91,18 +102,29 @@ class RegisterState extends State<Register> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 20, bottom: 8),
+              margin: const EdgeInsets.only(top: 20, bottom: 8),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0)),
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   backgroundColor:
-                      Color(0XFF5F5FFF), //primary 500
+                      const Color(0XFF5F5FFF), //primary 500
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Login()));
+                  if (nameController.text.isNotEmpty && emailController.text.isNotEmpty && pwdController.text.isNotEmpty) {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => const Login()));
+                  } else {
+                    Fluttertoast.showToast(
+                        msg: "All available fields is required",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.black,
+                        textColor: Colors.white,
+                        fontSize: 12.0);
+                  }
                 },
                 child: const Text(
                   "Sign Up",
@@ -114,26 +136,26 @@ class RegisterState extends State<Register> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
+              padding: const EdgeInsets.symmetric(vertical: 12),
               child: Center(
                 child: RichText(
                   text: TextSpan(
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Poppins"),
                       children: [
-                        TextSpan(text: "New to Heal&Go? "),
+                        const TextSpan(text: "New to Heal&Go? "),
                         TextSpan(
                             text: "Login",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Color(0xff5f5fff),
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "Poppins"),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Login()));
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                    builder: (context) => const Login()));
                               })
                       ]),
                 ),

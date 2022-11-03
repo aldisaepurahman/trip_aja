@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:heal_and_go/auth/Login.dart';
-import 'package:heal_and_go/ui/onboarding/OnboardingView.dart';
+import 'package:heal_and_go/ui/screen/onboarding/OnboardingView.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,8 +24,8 @@ class _MyAppState extends State<SplashScreen> {
   startSplashScreen() async {
     var duration = const Duration(seconds: 2);
     return Timer(duration, () {
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => Login()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => OnboardingView()));
     });
   }
 

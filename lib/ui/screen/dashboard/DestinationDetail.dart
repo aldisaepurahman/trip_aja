@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:heal_and_go/info/DestinationInfo.dart';
+import 'package:heal_and_go/data/response/RecommendationDataItem.dart';
 
 class DestinationDetail extends StatelessWidget {
-  final DestinationInfo destinationInfo;
+  final RecommendationDataItem destinationInfo;
 
   const DestinationDetail({Key? key, required this.destinationInfo})
       : super(key: key);
@@ -15,7 +15,7 @@ class DestinationDetail extends StatelessWidget {
           child: Stack(
             children: [
               Image.network(
-                destinationInfo.url_citra,
+                destinationInfo.image,
                 fit: BoxFit.fill,
                 height: 450,
                 width: double.infinity,
@@ -40,7 +40,7 @@ class DestinationDetail extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            destinationInfo.nama,
+                            destinationInfo.name,
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               fontFamily: "poppins",
@@ -63,7 +63,7 @@ class DestinationDetail extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            destinationInfo.deskripsi,
+                            destinationInfo.description,
                             style: TextStyle(
                               fontFamily: "poppins",
                               fontSize: 12,
@@ -83,8 +83,8 @@ class DestinationDetail extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15),
                                     side: BorderSide(color: Colors.blue)),
-                                primary: Colors.white,
-                                onPrimary: Colors.blue,
+                                backgroundColor: Colors.white,
+                                foregroundColor: Colors.blue,
                                 padding: const EdgeInsets.all(15),
                               ),
                               child: Icon(Icons.location_pin) ,

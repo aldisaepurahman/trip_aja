@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:heal_and_go/components/NavigationBar.dart';
-import 'package:heal_and_go/dashboard/profil.dart';
-import 'package:heal_and_go/ui/Home.dart';
+import 'package:heal_and_go/ui/components/NavigationBar.dart';
+import 'package:heal_and_go/ui/screen/dashboard/Profil.dart';
+import 'package:heal_and_go/ui/screen/dashboard/Home.dart';
+import 'package:heal_and_go/ui/screen/dashboard/DiscoverView.dart';
 
 class Navigations extends StatefulWidget {
   const Navigations({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _NavigationState extends State<Navigations> {
           break;
 
         case 1:
-          _screen = const Profil();
+          _screen = const Discover();
           break;
 
         case 2:

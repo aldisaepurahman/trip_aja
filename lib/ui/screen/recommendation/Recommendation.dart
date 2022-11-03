@@ -144,7 +144,16 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
                                 ),
                               )),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Fluttertoast.showToast(
+                                    msg : "This feature is not implemented yet.",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.black,
+                                    textColor: Colors.white,
+                                    fontSize: 12.0);
+                              },
                               icon: const Icon(Icons.help_outline,
                                   color: Colors.white))
                         ],

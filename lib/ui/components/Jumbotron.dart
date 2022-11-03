@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:heal_and_go/ui/questionnaire/Questionnaire.dart';
+import 'package:heal_and_go/ui/screen/questionnaire/Questionnaire.dart';
 
 class Jumbotron extends StatelessWidget {
   const Jumbotron({Key ? key}) : super(key: key);

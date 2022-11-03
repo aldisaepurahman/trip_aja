@@ -4,6 +4,7 @@ import 'package:heal_and_go/data/response/RecommendationDataItem.dart';
 class DestinationCard extends StatelessWidget {
   final RecommendationDataItem destinationinfo;
   final double height;
+  final double scale;
   VoidCallback? onDoubleTap;
   VoidCallback? onLongPress;
   VoidCallback? onTap;
@@ -12,6 +13,7 @@ class DestinationCard extends StatelessWidget {
       {Key? key,
       required this.destinationinfo,
       required this.height,
+      this.scale = 1,
       this.onDoubleTap,
       this.onLongPress,
       this.onTap})
@@ -37,7 +39,7 @@ class DestinationCard extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         padding: const EdgeInsets.only(bottom: 10),
         child: Container(
-          width: 230,
+          width: 230 * scale,
           height: 50,
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -58,7 +60,7 @@ class DestinationCard extends StatelessWidget {
                 destinationinfo.name,
                 style: const TextStyle(
                     fontFamily: "poppins",
-                    fontSize: 14,
+                    fontSize: 11,
                     fontWeight: FontWeight.bold),
               ),
               Text(

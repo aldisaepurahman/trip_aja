@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:heal_and_go/auth/Login.dart';
-import 'package:heal_and_go/components/profil_button.dart';
-import 'package:heal_and_go/components/NavigationBar.dart';
+import 'package:heal_and_go/ui/screen/auth/Login.dart';
+import 'package:heal_and_go/ui/components/Profil_Button.dart';
 
 class Profil extends StatefulWidget {
   const Profil({Key? key}) : super(key: key);
@@ -23,9 +22,9 @@ class ProfilState extends State<Profil> {
             body: ListView(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 25, bottom: 35),
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: Text("Profile",
+              margin: const EdgeInsets.only(top: 25, bottom: 35),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: const Text("Profile",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: "poppins",
@@ -36,7 +35,7 @@ class ProfilState extends State<Profil> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                    margin: EdgeInsets.only(left: 20),
+                    margin: const EdgeInsets.only(left: 20),
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
@@ -55,8 +54,8 @@ class ProfilState extends State<Profil> {
               ],
             ),
             Container(
-                margin: EdgeInsets.symmetric(horizontal: 35, vertical: 50),
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                margin: const EdgeInsets.symmetric(horizontal: 35, vertical: 50),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                 decoration: BoxDecoration(
                     color: Colors.black12,
                     borderRadius: BorderRadius.circular(10)),
@@ -89,12 +88,11 @@ class ProfilState extends State<Profil> {
                         color: Colors.red,
                         menu: "Logout",
                         aksi: () {
-                          Navigator.of(context).push(MaterialPageRoute(
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
                               builder: (context) => const Login()));
                         }),
                   ],
                 )),
-            MyNavigationBar()
           ],
         )));
   }
