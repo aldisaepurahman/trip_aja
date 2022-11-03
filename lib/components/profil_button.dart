@@ -41,7 +41,7 @@ class Profil_Button extends StatelessWidget {
                         fontSize: 12.0);
                   },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
