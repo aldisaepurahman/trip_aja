@@ -14,12 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-
-  @override
-  void dispose() {
-
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +30,7 @@ class HomeState extends State<Home> {
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontFamily: "poppins",
+                    fontWeight: FontWeight.bold,
                     fontSize: 16,
                     decoration: TextDecoration.none,
                   ),
@@ -44,27 +39,24 @@ class HomeState extends State<Home> {
               Container(
                 height: 400,
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Expanded (
-                  child: Padding (
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return DestinationCard(destinationinfo: destinationinfo[index]);
-                      },
-                      separatorBuilder: (context, index) {
-                        return Divider();
-                      },
-                      itemCount: destinationinfo.length,
-                    ),
+                child: Padding (
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return DestinationCard(destinationinfo: destinationinfo[index]);
+                    },
+                    separatorBuilder: (context, index) {
+                      return Divider();
+                    },
+                    itemCount: destinationinfo.length,
                   ),
-                ),
+                )
               ),
-              MyNavigationBar()
             ],
           ),
         ),
-      )
+      ),
     );
   }
 }

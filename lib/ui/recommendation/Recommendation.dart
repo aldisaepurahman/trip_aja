@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:heal_and_go/data/response/RecommendationDataItem.dart';
+import 'package:heal_and_go/ui/Navigations.dart';
 import 'package:heal_and_go/ui/components/DestinationCard.dart';
-import 'package:heal_and_go/ui/questionnaire/Questionnaire.dart';
 import 'package:heal_and_go/utils/SwipeRequest.dart';
 import 'package:lottie/lottie.dart';
 import 'package:swipable_stack/swipable_stack.dart';
@@ -77,7 +77,7 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
     var duration = const Duration(seconds: 2);
     return Timer(duration, () {
       Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => Questionnaire()));
+          MaterialPageRoute(builder: (context) => const Navigations()));
     });
   }
 

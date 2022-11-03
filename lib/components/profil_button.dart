@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Profil_Button extends StatelessWidget {
   final IconData ikon;
   final String menu;
-  //final Function aksi;
+  final VoidCallback? aksi;
   final Color color;
 
   const Profil_Button(
       {Key? key,
       required this.ikon,
       required this.menu,
-      //required this.aksi,
+      this.aksi,
       this.color = Colors.black})
       : super(key: key);
 
@@ -19,16 +20,26 @@ class Profil_Button extends StatelessWidget {
     return Row(children: [
       Expanded(
           child: Container(
-              margin: EdgeInsets.only(bottom: 15),
+              margin: const EdgeInsets.only(bottom: 15),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    primary: Colors.white,
-                    onPrimary: color,
+                    backgroundColor: Colors.white,
+                    foregroundColor: color,
                     padding: const EdgeInsets.all(20),
                   ),
+                  onPressed: aksi ?? () {
+                    Fluttertoast.showToast(
+                        msg: "This feature is not implemented yet",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.black,
+                        textColor: Colors.white,
+                        fontSize: 12.0);
+                  },
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Row(
@@ -40,7 +51,7 @@ class Profil_Button extends StatelessWidget {
                             const SizedBox(
                               width: 10,
                             ),
-                            Text(menu)
+                            Text(menu, style: const TextStyle(fontFamily: "poppins", fontWeight: FontWeight.bold))
                           ],
                         ),
                         const Icon(
@@ -49,10 +60,9 @@ class Profil_Button extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),
-                  onPressed: () {
-                    print("You pressed Icon Elevated Button");
-                  })))
+                  ))
+          )
+      )
     ]);
   }
 }
