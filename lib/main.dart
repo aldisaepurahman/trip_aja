@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(home: SplashScreen());
   }
+
 }
 
 class SplashScreen extends StatefulWidget {
@@ -19,11 +20,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _MyAppState extends State<SplashScreen> {
+
   startSplashScreen() async {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => OnboardingView()));
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => OnboardingView()));
     });
   }
 
