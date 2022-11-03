@@ -7,6 +7,7 @@ class RecommendationDataItem extends DestinationItem {
       {required this.id,
       required super.image,
       required super.name,
+      required super.category,
       required super.description,
       required super.location});
 }
