@@ -60,11 +60,11 @@ class HomeState extends State<Home> {
                   ),
                 ),
               ),
-              MyNavigationBar()
             ],
           ),
         ),
-      )
+      ),
+      bottomNavigationBar: MyNavigationBar(),
     );
   }
 }
