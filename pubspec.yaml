@@ -68,6 +68,10 @@ flutter:
      - images/destination.jpg
      - images/check.json
      - images/love.json
+     - images/login_illustration.jpg
+     - images/register_illustration.jpg
+     - images/profil.jpg
+  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

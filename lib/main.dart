@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/ui/onboarding/OnboardingView.dart';
-import 'package:heal_and_go/ui/questionnaire/Questionnaire.dart';
-import 'package:heal_and_go/ui/recommendation/Recommendation.dart';
+import 'package:heal_and_go/ui/Home.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +11,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SplashScreen());
+    return MaterialApp(home: Home());
   }
 
 }
