@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/ui/questionnaire/Questionnaire.dart';
 
 class Jumbotron extends StatelessWidget {
   const Jumbotron({Key ? key}) : super(key: key);
@@ -46,11 +47,12 @@ class Jumbotron extends StatelessWidget {
               ),
             ),
             ElevatedButton(onPressed: () {
-
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Questionnaire()));
             },
             style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Colors.blue,
+              backgroundColor: Colors.white,
+              foregroundColor: Color(0xff5f5fff),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15)
               ),

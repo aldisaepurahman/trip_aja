@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/auth/Login.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -10,8 +12,6 @@ class Register extends StatefulWidget {
 }
 
 class RegisterState extends State<Register> {
-  @override
-  void dispose() {}
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +37,17 @@ class RegisterState extends State<Register> {
                 textAlign: TextAlign.left,
                 style: const TextStyle(
                     fontFamily: "poppins",
-                    fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 27, 28, 30))),
+                )),
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 18),
               child: TextField(
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
                     hintText: "Full name",
+                    hintStyle: const TextStyle(
+                      fontFamily: "Poppins",
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0))),
               ),
@@ -54,15 +56,17 @@ class RegisterState extends State<Register> {
                 textAlign: TextAlign.left,
                 style: const TextStyle(
                     fontFamily: "poppins",
-                    fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 27, 28, 30))),
+                )),
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 18),
               child: TextField(
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.mail),
                     hintText: "Email",
+                    hintStyle: const TextStyle(
+                      fontFamily: "Poppins",
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0))),
               ),
@@ -71,15 +75,17 @@ class RegisterState extends State<Register> {
                 textAlign: TextAlign.left,
                 style: const TextStyle(
                     fontFamily: "poppins",
-                    fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 27, 28, 30))),
+            )),
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 18),
               child: TextField(
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock),
                     hintText: "Password",
+                    hintStyle: const TextStyle(
+                      fontFamily: "Poppins",
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0))),
               ),
@@ -90,12 +96,13 @@ class RegisterState extends State<Register> {
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0)),
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.all(15),
                   backgroundColor:
-                      Color.fromARGB(255, 95, 95, 255), //primary 500
+                      Color(0XFF5F5FFF), //primary 500
                 ),
                 onPressed: () {
-                  setState(() {});
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Login()));
                 },
                 child: const Text(
                   "Sign Up",
@@ -106,13 +113,31 @@ class RegisterState extends State<Register> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(bottom: 50),
-              child: Text("Already have an account? Login",
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontFamily: "poppins",
-                      color: Color.fromARGB(100, 27, 28, 30))),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 12),
+              child: Center(
+                child: RichText(
+                  text: TextSpan(
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins"),
+                      children: [
+                        TextSpan(text: "New to Heal&Go? "),
+                        TextSpan(
+                            text: "Login",
+                            style: TextStyle(
+                                color: Color(0xff5f5fff),
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Poppins"),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Login()));
+                              })
+                      ]),
+                ),
+              ),
             )
           ],
         )));
