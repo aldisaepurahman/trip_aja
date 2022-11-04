@@ -41,6 +41,12 @@ class _MyNavigationBar extends State<MyNavigationBar> {
         ],
       currentIndex: _selectedBarIcon,
       onTap: _changeBarIcon,
+      unselectedLabelStyle: const TextStyle(
+        fontFamily: "Poppins"
+      ),
+      selectedLabelStyle: const TextStyle(
+          fontFamily: "Poppins"
+      ),
     );
   }
 }
