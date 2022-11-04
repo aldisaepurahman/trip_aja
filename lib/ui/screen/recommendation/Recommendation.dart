@@ -161,7 +161,7 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
                     opacity: finished ? 0.0 : 1.0,
                     duration: Duration(milliseconds: finished ? 250 : 500),
                     child: Container(
-                      height: 500,
+                      height: MediaQuery.of(context).size.height * 0.7,
                       alignment: Alignment.center,
                       child: SwipableStack(
                         itemCount: recommendationItem.length,
