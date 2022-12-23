@@ -9,17 +9,17 @@ class UnbordingModel {
 List<UnbordingModel> contents = [
   UnbordingModel(
       title: 'Let\'s Travel',
-      image: 'images/onboarding1.jpg',
+      image: 'assets/images/onboarding1.jpg',
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque imperdiet ante, ut finibus ex aliquet vel."
   ),
   UnbordingModel(
       title: 'Explore The Unknown',
-      image: 'images/onboarding2.jpg',
+      image: 'assets/images/onboarding2.jpg',
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque imperdiet ante, ut finibus ex aliquet vel."
   ),
   UnbordingModel(
       title: 'Trip Recommendation',
-      image: 'images/onboarding3.jpg',
+      image: 'assets/images/onboarding3.jpg',
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque imperdiet ante, ut finibus ex aliquet vel."
   ),
 ];

@@ -64,16 +64,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - images/heal_and_go_logo.png
-     - images/destination.jpg
-     - images/check.json
-     - images/love.json
-     - images/login_illustration.jpg
-     - images/register_illustration.jpg
-     - images/profil.jpg
-     - images/onboarding1.jpg
-     - images/onboarding2.jpg
-     - images/onboarding3.jpg
+     - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -90,7 +81,7 @@ flutter:
   fonts:
      - family: Poppins
        fonts:
-         - asset: fonts/poppins.ttf
+         - asset: assets/fonts/poppins.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

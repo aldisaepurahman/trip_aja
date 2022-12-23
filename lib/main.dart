@@ -47,7 +47,7 @@ class _MyAppState extends State<SplashScreen> {
           children: [
             Center(
               child: Image.asset(
-                "images/heal_and_go_logo.png",
+                "assets/images/heal_and_go_logo.png",
                 width: 200.0,
                 height: 100.0,
                 fit: BoxFit.contain,

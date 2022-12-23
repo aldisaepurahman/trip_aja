@@ -35,7 +35,7 @@ class RegisterState extends State<Register> {
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 27, 28, 30))),
             ),
-            Image.asset("images/register_illustration.jpg",
+            Image.asset("assets/images/register_illustration.jpg",
                 height: 300, fit: BoxFit.contain),
             const Padding(
                 padding: EdgeInsets.only(top: 10),
@@ -145,7 +145,7 @@ class RegisterState extends State<Register> {
                           fontWeight: FontWeight.bold,
                           fontFamily: "Poppins"),
                       children: [
-                        const TextSpan(text: "New to Heal&Go? "),
+                        const TextSpan(text: "Have an Heal&Go account? "),
                         TextSpan(
                             text: "Login",
                             style: const TextStyle(

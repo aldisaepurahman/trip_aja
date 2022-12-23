@@ -37,7 +37,7 @@ class LoginState extends State<Login> {
             ),
             Center(
                 child: Image.asset(
-              "images/login_illustration.jpg",
+              "assets/images/login_illustration.jpg",
               fit: BoxFit.contain,
               height: 300,
             )),
@@ -139,7 +139,7 @@ class LoginState extends State<Login> {
                       children: [
                         const TextSpan(text: "New to Heal&Go? "),
                         TextSpan(
-                            text: "Login",
+                            text: "Register",
                             style: const TextStyle(
                                 color: Color(0xff5f5fff),
                                 fontWeight: FontWeight.bold,

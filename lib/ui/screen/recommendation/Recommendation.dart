@@ -107,7 +107,7 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
                     opacity: finished ? 1.0 : 0.0,
                     duration: const Duration(milliseconds: 500),
                     child: Lottie.asset(
-                        "images/check.json",
+                        "assets/images/check.json",
                         controller: _animationController,
                         repeat: false,
                         animate: true,

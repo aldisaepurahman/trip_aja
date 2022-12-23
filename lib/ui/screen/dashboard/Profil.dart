@@ -41,7 +41,7 @@ class ProfilState extends State<Profil> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         image: const DecorationImage(
-                            image: AssetImage("images/profil.jpg")))),
+                            image: AssetImage("assets/images/profil.jpg")))),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(nama,
