@@ -8,6 +8,7 @@ import 'package:heal_and_go/ui/Navigations.dart';
 import 'package:heal_and_go/ui/components/DestinationCard.dart';
 import 'package:heal_and_go/utils/SwipeRequest.dart';
 import 'package:lottie/lottie.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
 final recommendationItem = [
@@ -59,7 +60,9 @@ final recommendationItem = [
 ];
 
 class Recommendation extends StatefulWidget {
-  const Recommendation({super.key});
+  const Recommendation({super.key, required this.client});
+
+  final SupabaseClient client;
 
   @override
   State<Recommendation> createState() => _RecommendationState();
@@ -77,7 +80,7 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
     var duration = const Duration(seconds: 2);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const Navigations()));
+          MaterialPageRoute(builder: (context) => Navigations(client: widget.client)));
     });
   }
 

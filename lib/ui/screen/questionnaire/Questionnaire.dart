@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/ui/Navigations.dart';
+import 'package:heal_and_go/ui/components/Dialog.dart';
 import 'package:heal_and_go/ui/screen/recommendation/Recommendation.dart';
 import 'package:heal_and_go/utils/QuestionItem.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Questionnaire extends StatefulWidget {
-  const Questionnaire({super.key});
+  const Questionnaire({super.key, required this.client});
+
+  final SupabaseClient client;
 
   _QuestionnaireState createState() => _QuestionnaireState();
 }
@@ -53,7 +58,49 @@ class _QuestionnaireState extends State<Questionnaire>
     _progressAnimController.forward();
   }
 
-  void dialogue() {}
+  void submitWarningDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogDoubleButton(
+          title: "Whoa! Take it easy",
+          content: "If you are sure for your life choices, you can click the submit button below 😊",
+          path_image: "assets/images/questionmark.json",
+          buttonLeft: "Cancel",
+          buttonRight: "Submit",
+          onPressedButtonLeft: () {
+            Navigator.of(context).pop();
+          },
+          onPressedButtonRight: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => Recommendation(client: widget.client)));
+          },
+        );
+      },
+    );
+  }
+
+  void backWarningDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return DialogDoubleButton(
+              title: "Hey! Stop right there",
+              content: "Do you really want to do this? Just a reminder your answer will be lost if you go back!",
+              path_image: "assets/images/caution.json",
+              buttonLeft: "No",
+              buttonRight: "Yes",
+              onPressedButtonLeft: () {
+                Navigator.of(context).pop();
+              },
+              onPressedButtonRight: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => Navigations(client: widget.client)));
+              },
+          );
+        },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -231,8 +278,7 @@ class _QuestionnaireState extends State<Questionnaire>
                                       onPressed: () {
                                         (currentPage < totalPages)
                                             ? _controller.nextPage(duration: _duration, curve: _curve)
-                                            : Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(builder: (context) => Recommendation()));
+                                            : submitWarningDialog();
                                       },
                                       child: Text(
                                         (currentPage < totalPages)
@@ -263,7 +309,7 @@ class _QuestionnaireState extends State<Questionnaire>
         onWillPop: () async {
           (currentPage > 1)
               ? _controller.previousPage(duration: _duration, curve: _curve)
-              : Navigator.pop(context);
+              : backWarningDialog();
           return false;
         },
     );

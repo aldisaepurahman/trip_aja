@@ -2,9 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/ui/screen/auth/Register.dart';
 import 'package:heal_and_go/utils/OnboardingModel.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class OnboardingView extends StatefulWidget {
-  const OnboardingView({super.key});
+  const OnboardingView({super.key, required this.client});
+
+  final SupabaseClient client;
 
   @override
   State<OnboardingView> createState() => _OnboardingViewState();
@@ -13,6 +17,12 @@ class OnboardingView extends StatefulWidget {
 class _OnboardingViewState extends State<OnboardingView> {
   int currentIndex = 0;
   final PageController _controller = PageController(initialPage: 0);
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  Future<void> _saveSession() async {
+    final SharedPreferences prefs = await _prefs;
+    prefs.setBool("onboarding", true);
+  }
 
   @override
   void initState() {
@@ -88,10 +98,11 @@ class _OnboardingViewState extends State<OnboardingView> {
                     child: currentIndex == contents.length - 1
                         ? ElevatedButton(
                             onPressed: () {
+                              _saveSession();
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => const Register(),
+                                  builder: (_) => Register(client: widget.client),
                                 ),
                               );
                             },
@@ -114,10 +125,11 @@ class _OnboardingViewState extends State<OnboardingView> {
                             children: [
                               TextButton(
                                 onPressed: () {
+                                  _saveSession();
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (_) => const Register(),
+                                      builder: (_) => Register(client: widget.client),
                                     ),
                                   );
                                 },

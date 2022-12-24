@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/ui/screen/auth/Login.dart';
 import 'package:heal_and_go/ui/components/Profil_Button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase/supabase.dart';
 
 class Profil extends StatefulWidget {
-  const Profil({Key? key}) : super(key: key);
+  const Profil({Key? key, required this.client}) : super(key: key);
+
+  final SupabaseClient client;
 
   @override
   ProfilState createState() {
@@ -13,6 +17,20 @@ class Profil extends StatefulWidget {
 
 class ProfilState extends State<Profil> {
   String nama = "Chris Hemsworth";
+
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  Future<void> _clearSession() async {
+    final SharedPreferences prefs = await _prefs;
+    prefs.remove("user");
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    /*final SharedPreferences prefs = await _prefs;
+    final String user = prefs.getString("user") ?? "";*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +106,9 @@ class ProfilState extends State<Profil> {
                         color: Colors.red,
                         menu: "Logout",
                         aksi: () {
+                          _clearSession();
                           Navigator.of(context).pushReplacement(MaterialPageRoute(
-                              builder: (context) => const Login()));
+                              builder: (context) => Login(client: widget.client)));
                         }),
                   ],
                 )),

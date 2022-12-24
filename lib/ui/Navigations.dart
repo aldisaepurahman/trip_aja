@@ -3,9 +3,12 @@ import 'package:heal_and_go/ui/components/NavigationBar.dart';
 import 'package:heal_and_go/ui/screen/dashboard/Profil.dart';
 import 'package:heal_and_go/ui/screen/dashboard/Home.dart';
 import 'package:heal_and_go/ui/screen/dashboard/DiscoverView.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Navigations extends StatefulWidget {
-  const Navigations({Key? key}) : super(key: key);
+  const Navigations({Key? key, required this.client}) : super(key: key);
+
+  final SupabaseClient client;
 
   @override
   State<Navigations> createState() => _NavigationState();
@@ -13,14 +16,20 @@ class Navigations extends StatefulWidget {
 
 class _NavigationState extends State<Navigations> {
 
-  Widget _screen = const Home();
+  late Widget _screen;
+
+  @override
+  void initState() {
+    super.initState();
+    _screen = Home(client: widget.client);
+  }
 
   void changeScreen(int index) {
     setState((){
 
       switch (index) {
         case 0:
-          _screen = const Home();
+          _screen = Home(client: widget.client);
           break;
 
         case 1:
@@ -28,7 +37,7 @@ class _NavigationState extends State<Navigations> {
           break;
 
         case 2:
-          _screen = const Profil();
+          _screen = Profil(client: widget.client);
           break;
       }
     });
