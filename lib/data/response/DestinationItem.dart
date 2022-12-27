@@ -6,9 +6,9 @@ class DestinationItem {
   String location;
 
   DestinationItem(
-      {required this.image,
-      required this.name,
-      required this.category,
-      required this.description,
-      required this.location});
+      {this.image = "",
+      this.name = "",
+      this.category = "",
+      this.description = "",
+      this.location = ""});
 }

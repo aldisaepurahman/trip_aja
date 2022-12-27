@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class MultiSelectChip extends StatefulWidget {
   final List<String> reportList;
-  MultiSelectChip(this.reportList);
+  final ValueChanged<String> onSelectedChoice;
+  MultiSelectChip({required this.reportList, required this.onSelectedChoice});
   @override
   _MultiSelectChipState createState() => _MultiSelectChipState();
 }
@@ -27,6 +28,7 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
           onSelected: (selected) {
             setState(() {
               selectedChoice = item;
+              widget.onSelectedChoice(selectedChoice);
             });
           },
         ),
