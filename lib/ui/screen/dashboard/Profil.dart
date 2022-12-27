@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/data/response/Users.dart';
 import 'package:heal_and_go/ui/screen/auth/Login.dart';
 import 'package:heal_and_go/ui/components/Profil_Button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,7 +19,7 @@ class Profil extends StatefulWidget {
 }
 
 class ProfilState extends State<Profil> {
-  String nama = "Chris Hemsworth";
+  String nama = "";
 
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
@@ -25,11 +28,19 @@ class ProfilState extends State<Profil> {
     prefs.remove("user");
   }
 
+  void initProfile() async {
+    final SharedPreferences prefs = await _prefs;
+    final String user = prefs.getString("user") ?? "";
+    Users datauser = Users.fromJson(jsonDecode(user));
+    setState((){
+      nama = datauser.full_name!;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
-    /*final SharedPreferences prefs = await _prefs;
-    final String user = prefs.getString("user") ?? "";*/
+    initProfile();
   }
 
   @override

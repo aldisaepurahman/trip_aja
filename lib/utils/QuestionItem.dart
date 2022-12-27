@@ -29,7 +29,7 @@ final question = [
         "Middle Age (46–64)",
         "Senior Adult (> 64)"
       ],
-      groupValue: [false, false, false, false, false],
+      groupValue: <bool>[false, false, false, false, false],
       multiple_choice: true
   ),
   QuestionItem(
@@ -44,7 +44,7 @@ final question = [
         "Leisurely walk",
         "Shopping"
       ],
-      groupValue: [false, false, false, false, false, false, false, false],
+      groupValue: <bool>[false, false, false, false, false, false, false, false],
       multiple_choice: true
   ),
   QuestionItem(

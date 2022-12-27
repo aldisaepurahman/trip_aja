@@ -5,7 +5,7 @@ import 'package:heal_and_go/data/response/Users.dart';
 import 'package:heal_and_go/data/result.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
 import 'package:heal_and_go/ui/screen/auth/Login.dart';
-import 'package:heal_and_go/ui/screen/auth/auth_viewmodel.dart';
+import 'package:heal_and_go/ui/screen/auth/AuthViewModel.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -223,13 +223,11 @@ class RegisterState extends State<Register> {
                         }
                         if (value.register_status.status == Status.ERROR) {
                           Future.delayed(const Duration(seconds: 1), () {
-                            Navigator.of(context).pop();
                             showSubmitDialog(3);
                           });
                         }
                         if (value.register_status.status == Status.SUCCESS) {
                           Future.delayed(const Duration(seconds: 1), () {
-                            Navigator.of(context).pop();
                             showSubmitDialog(2);
                           });
                         }

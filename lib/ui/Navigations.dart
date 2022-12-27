@@ -33,7 +33,7 @@ class _NavigationState extends State<Navigations> {
           break;
 
         case 1:
-          _screen = const Discover();
+          _screen = Discover(client: widget.client);
           break;
 
         case 2:

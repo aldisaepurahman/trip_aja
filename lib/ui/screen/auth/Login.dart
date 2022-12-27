@@ -8,7 +8,7 @@ import 'package:heal_and_go/data/result.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
 import 'package:heal_and_go/ui/screen/auth/Register.dart';
 import 'package:heal_and_go/ui/Navigations.dart';
-import 'package:heal_and_go/ui/screen/auth/auth_viewmodel.dart';
+import 'package:heal_and_go/ui/screen/auth/AuthViewModel.dart';
 import 'package:heal_and_go/utils/parsing.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -221,14 +221,12 @@ class LoginState extends State<Login> {
                   }
                   if (value.users_data.status == Status.ERROR) {
                     Future.delayed(const Duration(seconds: 1), () {
-                      Navigator.of(context).pop();
                       showSubmitDialog(3);
                     });
                   }
                   if (value.users_data.status == Status.SUCCESS) {
                     _saveSession(value.users_data.data);
                     Future.delayed(const Duration(seconds: 1), () {
-                      Navigator.of(context).pop();
                       showSubmitDialog(2);
                     });
                   }

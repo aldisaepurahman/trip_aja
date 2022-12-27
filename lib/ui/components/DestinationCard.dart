@@ -56,18 +56,22 @@ class DestinationCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
-                destinationinfo.name,
-                style: const TextStyle(
-                    fontFamily: "poppins",
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold),
+              Expanded(
+                  child: Text(
+                    destinationinfo.name,
+                    style: const TextStyle(
+                        fontFamily: "poppins",
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold),
+                  ),
               ),
-              Text(
-                destinationinfo.location,
-                style: const TextStyle(
-                  fontSize: 9,
-                ),
+              Expanded(
+                  child: Text(
+                    destinationinfo.location,
+                    style: const TextStyle(
+                      fontSize: 9,
+                    ),
+                  )
               )
             ],
           ),
