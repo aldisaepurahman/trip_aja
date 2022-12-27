@@ -8,18 +8,18 @@ class UnbordingModel {
 
 List<UnbordingModel> contents = [
   UnbordingModel(
-      title: 'Let\'s Travel',
-      image: 'assets/images/onboarding1.jpg',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque imperdiet ante, ut finibus ex aliquet vel."
+      title: 'Find Your Next Trip Destination',
+      image: 'assets/images/onboarding1.png',
+      description: "Welcome to TripAja, where you can find your perfect destination. Explore the world at your fingertips."
   ),
   UnbordingModel(
-      title: 'Explore The Unknown',
-      image: 'assets/images/onboarding2.jpg',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque imperdiet ante, ut finibus ex aliquet vel."
+      title: 'Explore The Unexplored',
+      image: 'assets/images/onboarding2.png',
+      description: "Unlock new travel possibilities and discover the world's hidden gems."
   ),
   UnbordingModel(
       title: 'Trip Recommendation',
-      image: 'assets/images/onboarding3.jpg',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque imperdiet ante, ut finibus ex aliquet vel."
+      image: 'assets/images/onboarding3.png',
+      description: "Find your next great escape according to your preferences."
   ),
 ];

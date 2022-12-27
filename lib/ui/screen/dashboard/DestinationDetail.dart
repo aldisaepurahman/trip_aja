@@ -52,15 +52,15 @@ class DestinationDetail extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            "Description",
+                            "Destination Overview",
                             style: TextStyle(
                               fontFamily: "poppins",
                               fontSize: 16,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           Text(
                             destinationInfo.description,
@@ -68,6 +68,7 @@ class DestinationDetail extends StatelessWidget {
                               fontFamily: "poppins",
                               fontSize: 12,
                             ),
+                            textAlign: TextAlign.justify,
                           ),
                         ],
                       ),

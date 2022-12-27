@@ -10,6 +10,7 @@ import 'package:heal_and_go/ui/components/DestinationCard.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
 import 'package:heal_and_go/ui/screen/recommendation/RecommendationViewModel.dart';
 import 'package:heal_and_go/utils/DestinationInfo.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:heal_and_go/utils/SwipeRequest.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -166,7 +167,7 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff5f5fff),
+      backgroundColor: blue,
       body: ChangeNotifierProvider<RecommendationViewModel>(
         create: (context) => recommendationViewModel,
         child: WillPopScope(
@@ -185,7 +186,7 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
                             opacity: finished ? 1.0 : 0.0,
                             duration: const Duration(milliseconds: 500),
                             child: Lottie.asset(
-                                "assets/images/check.json",
+                                "assets/images/check_blue.json",
                                 controller: _animationController,
                                 repeat: false,
                                 animate: true,
@@ -292,6 +293,8 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
                                             _controller.next(
                                                 swipeDirection: SwipeDirection.right);
                                           },
+                                          paddingSize: 0,
+                                          orientation: "single",
                                         ),
                                       )
                                     ],
