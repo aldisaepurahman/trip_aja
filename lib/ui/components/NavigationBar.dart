@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class MyNavigationBar extends StatefulWidget{
 
-  // final Function callback;
-  const MyNavigationBar({Key? key}): super(key: key);
+  final Function callback;
+  const MyNavigationBar({Key? key, required this.callback}): super(key: key);
 
   @override
   State<MyNavigationBar> createState() {
@@ -19,7 +19,7 @@ class _MyNavigationBar extends State<MyNavigationBar> {
     setState(() {
       _selectedBarIcon = indexIcon;
     });
-    // widget.callback(indexIcon);
+    widget.callback(indexIcon);
   }
 
   @override
@@ -40,7 +40,13 @@ class _MyNavigationBar extends State<MyNavigationBar> {
           ),
         ],
       currentIndex: _selectedBarIcon,
-      // onTap: _changeBarIcon,
+      onTap: _changeBarIcon,
+      unselectedLabelStyle: const TextStyle(
+        fontFamily: "Poppins"
+      ),
+      selectedLabelStyle: const TextStyle(
+          fontFamily: "Poppins"
+      ),
     );
   }
 }

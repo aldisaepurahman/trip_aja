@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/ui/screen/questionnaire/Questionnaire.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Jumbotron extends StatelessWidget {
-  const Jumbotron({Key ? key}) : super(key: key);
+  const Jumbotron({Key ? key, required this.client}) : super(key: key);
+
+  final SupabaseClient client;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +50,12 @@ class Jumbotron extends StatelessWidget {
               ),
             ),
             ElevatedButton(onPressed: () {
-
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Questionnaire(client: client)));
             },
             style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Colors.blue,
+              backgroundColor: Colors.white,
+              foregroundColor: Color(0xff5f5fff),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15)
               ),
