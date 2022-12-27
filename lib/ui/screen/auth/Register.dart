@@ -45,8 +45,13 @@ class RegisterState extends State<Register> {
       builder: (context) {
         Future.delayed(const Duration(seconds: 2), () {
           if (dialogType == 2) {
+            Navigator.of(context).pop();
             Navigator.of(context).pushReplacement(MaterialPageRoute(
                 builder: (context) => Login(client: widget.client)));
+          } else if (dialogType == 3) {
+            Future.delayed(const Duration(seconds: 2), () {
+              Navigator.of(context).pop();
+            });
           }
         });
         if (dialogType > 1) {

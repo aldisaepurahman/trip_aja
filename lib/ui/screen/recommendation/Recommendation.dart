@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:heal_and_go/data/response/RecommendationDataItem.dart';
+import 'package:heal_and_go/data/response/Users.dart';
 import 'package:heal_and_go/ui/Navigations.dart';
 import 'package:heal_and_go/ui/components/DestinationCard.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
@@ -108,7 +109,10 @@ class _RecommendationState extends State<Recommendation> with TickerProviderStat
         }
       }
     }
-    prefs.setStringList("final_result", stored);
+    final String user = prefs.getString("user") ?? "";
+    Users datauser = Users.fromJson(jsonDecode(user));
+
+    prefs.setStringList("final_result_${datauser.full_name}", stored);
   }
 
   void sendRecommendation() {
