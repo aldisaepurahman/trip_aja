@@ -82,7 +82,6 @@ class DiscoverState extends State<Discover> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Flexible(
                 child: SizedBox(
                   height: 30,
                   child: TextField(
@@ -113,7 +112,6 @@ class DiscoverState extends State<Discover> {
                     ),
                   ),
                 )
-                ),
               ),
               const SizedBox(height: 20),
               Padding(
