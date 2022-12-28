@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/ui/screen/auth/Register.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
+import 'package:heal_and_go/ui/components/Button.dart';
 import 'package:heal_and_go/utils/OnboardingModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -60,7 +62,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                         contents[i].title,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
-                          fontSize: 28,
+                          fontSize: 26,
                           fontWeight: FontWeight.bold,
                           fontFamily: "poppins",
                           height: 1.20,
@@ -70,10 +72,12 @@ class _OnboardingViewState extends State<OnboardingView> {
                       Text(
                         contents[i].description,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14,
-                          color: Colors.grey,
+                          color: greyFontColor,
                           fontFamily: "Poppins",
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.5,
                         ),
                       ),
                     ],
@@ -95,70 +99,56 @@ class _OnboardingViewState extends State<OnboardingView> {
               children: [
                 Container(
                     alignment: Alignment.center,
-                    child: currentIndex == contents.length - 1
-                        ? ElevatedButton(
-                            onPressed: () {
-                              _saveSession();
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => Register(client: widget.client),
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                                minimumSize: const Size.fromHeight(70),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                )),
-                            child: const Text(
-                              'SIGN UP',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1.0,
-                                fontFamily: "poppins",
+                    child: currentIndex == contents.length - 1 ?
+                    ButtonLong(
+                      bg_color: blue,
+                      onPressed: () {
+                        _saveSession();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => Register(client: widget.client),
+                          ),
+                        );
+                      },
+                      content: "SIGN UP NOW"
+                    )
+                    : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            _saveSession();
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => Register(client: widget.client),
                               ),
-                            ))
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              TextButton(
-                                onPressed: () {
-                                  _saveSession();
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => Register(client: widget.client),
-                                    ),
-                                  );
-                                },
-                                child: const Text(
-                                  'Skip',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: "poppins",
-                                  ),
-                                ),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  _controller.nextPage(
-                                    duration: const Duration(milliseconds: 400),
-                                    curve: Curves.bounceIn,
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Theme.of(context).primaryColor,
-                                    minimumSize: const Size(70, 70),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18),
-                                    )),
-                                child: const Icon(Icons.arrow_forward_ios_rounded),
-                              ),
-                            ],
-                          )),
+                            );
+                          },
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "poppins",
+                              color: blue,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                        ),
+                        ButtonShort(
+                          bg_color: blue,
+                          child: Icon(Icons.arrow_forward_ios_rounded, size: 18),
+                          onPressed: () {
+                            _controller.nextPage(
+                              duration: const Duration(milliseconds: 400),
+                              curve: Curves.bounceIn,
+                            );
+                          },
+                        )
+                      ],
+                    )
+                ),
               ],
             ),
           )
@@ -170,13 +160,13 @@ class _OnboardingViewState extends State<OnboardingView> {
   Container buildDot(int index, BuildContext context) {
     return Container(
       height: 10,
-      width: currentIndex == index ? 55 : 30,
+      width: currentIndex == index ? 45 : 10,
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: currentIndex == index
-            ? Theme.of(context).primaryColor
-            : Colors.grey,
+            ? blue
+            : greyFontColor,
       ),
     );
   }

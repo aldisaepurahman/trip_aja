@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:lottie/lottie.dart';
 
 class DialogDoubleButton extends StatelessWidget {
@@ -63,12 +64,12 @@ class DialogDoubleButton extends StatelessWidget {
                         backgroundColor: Colors.white,
                         padding: const EdgeInsets.all(20)),
                     child: Text(buttonLeft,
-                        style: const TextStyle(
-                            color: Color(0xff5f5fff), fontFamily: "Poppins"))),
+                        style: TextStyle(
+                            color: blue, fontFamily: "Poppins"))),
                 ElevatedButton(
                   onPressed: onPressedButtonRight,
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff5f5fff),
+                      backgroundColor: blue,
                       padding: const EdgeInsets.all(20)),
                   child: Text(
                     buttonRight,
@@ -97,7 +98,7 @@ class LoadingDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Container(
         padding: EdgeInsets.all(10),
@@ -129,7 +130,7 @@ class DialogNoButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Container(
         width: 150,

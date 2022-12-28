@@ -4,6 +4,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:heal_and_go/data/response/Users.dart';
 import 'package:heal_and_go/data/result.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
+import 'package:heal_and_go/ui/components/Button.dart';
 import 'package:heal_and_go/ui/screen/auth/Login.dart';
 import 'package:heal_and_go/ui/screen/auth/AuthViewModel.dart';
 import 'package:provider/provider.dart';
@@ -64,162 +66,150 @@ class RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Heal & Go',
-        home: Scaffold(
+    return Scaffold(
             body: ChangeNotifierProvider<AuthViewModel>(
                 create: (context) => authViewModel,
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 23),
-                      child: const Text("Sign up.",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontFamily: "poppins",
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 27, 28, 30))),
-                    ),
-                    Image.asset("assets/images/register_illustration.jpg",
-                        height: 300, fit: BoxFit.contain),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 10),
-                      child: Text("Full name",
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 23),
+                        child: const Text("Create Your Account",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                fontFamily: "poppins",
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 27, 28, 30))),
+                      ),
+                      Image.asset("assets/images/signup.png",
+                          height: 300, fit: BoxFit.contain),
+                      Text(
+                        "Full name",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: "poppins",
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 10, bottom: 18),
+                        child: TextField(
+                          controller: nameController,
+                          decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.person),
+                              hintText: "Full name",
+                              hintStyle: const TextStyle(
+                                fontFamily: "Poppins",
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                          ),
+                        ),
+                      ),
+                      const Text("Email",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontFamily: "poppins",
                             fontWeight: FontWeight.bold,
                           )),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10, bottom: 18),
-                      child: TextField(
-                        controller: nameController,
-                        decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.person),
-                            hintText: "Full name",
-                            hintStyle: const TextStyle(
-                              fontFamily: "Poppins",
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0))),
-                      ),
-                    ),
-                    const Text("Email",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: "poppins",
-                          fontWeight: FontWeight.bold,
-                        )),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10, bottom: 18),
-                      child: TextField(
-                        controller: emailController,
-                        decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.mail),
-                            hintText: "Email",
-                            hintStyle: const TextStyle(
-                              fontFamily: "Poppins",
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0))),
-                      ),
-                    ),
-                    const Text("Password",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: "poppins",
-                          fontWeight: FontWeight.bold,
-                        )),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10, bottom: 18),
-                      child: TextField(
-                        obscureText: true,
-                        controller: pwdController,
-                        decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.lock),
-                            hintText: "Password",
-                            hintStyle: const TextStyle(
-                              fontFamily: "Poppins",
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0))),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 20, bottom: 8),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.0)),
-                          padding: const EdgeInsets.all(15),
-                          backgroundColor:
-                              const Color(0XFF5F5FFF), //primary 500
+                      Container(
+                        margin: const EdgeInsets.only(top: 10, bottom: 18),
+                        child: TextField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.mail),
+                              hintText: "Email",
+                              hintStyle: const TextStyle(
+                                fontFamily: "Poppins",
+                              ),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12.0))),
                         ),
-                        onPressed: () async {
-                          if (nameController.text.isNotEmpty &&
-                              emailController.text.isNotEmpty &&
-                              emailController.text.contains("@") &&
-                              pwdController.text.isNotEmpty) {
-                            isSubmitted = !isSubmitted;
-                            await authViewModel.signup(
-                                widget.client,
-                                Users(
-                                    email: emailController.text,
-                                    full_name: nameController.text,
-                                    password: pwdController.text));
-                          } else {
-                            Fluttertoast.showToast(
-                                msg: "All available fields is required",
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.BOTTOM,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: Colors.black,
-                                textColor: Colors.white,
-                                fontSize: 12.0);
-                          }
-                        },
-                        child: const Text(
-                          "Sign Up",
+                      ),
+                      const Text("Password",
+                          textAlign: TextAlign.left,
                           style: TextStyle(
                             fontFamily: "poppins",
                             fontWeight: FontWeight.bold,
+                          )),
+                      Container(
+                        margin: const EdgeInsets.only(top: 10, bottom: 18),
+                        child: TextField(
+                          obscureText: true,
+                          controller: pwdController,
+                          decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.lock),
+                              hintText: "Password",
+                              hintStyle: const TextStyle(
+                                fontFamily: "Poppins",
+                              ),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12.0))),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 20, bottom: 8),
+                        child: ButtonLong(
+                          bg_color: blue,
+                          content: "SIGN UP",
+                          onPressed: () async {
+                            if (nameController.text.isNotEmpty &&
+                                emailController.text.isNotEmpty &&
+                                emailController.text.contains("@") &&
+                                pwdController.text.isNotEmpty) {
+                              isSubmitted = !isSubmitted;
+                              await authViewModel.signup(
+                                  widget.client,
+                                  Users(
+                                      email: emailController.text,
+                                      full_name: nameController.text,
+                                      password: pwdController.text));
+                            } else {
+                              Fluttertoast.showToast(
+                                  msg: "All available fields is required",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.black,
+                                  textColor: Colors.white,
+                                  fontSize: 12.0
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: Center(
+                          child: RichText(
+                            text: TextSpan(
+                                style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Poppins"),
+                                children: [
+                                  TextSpan(
+                                      text: "Have an account before? "),
+                                  TextSpan(
+                                      text: "Login",
+                                      style: TextStyle(
+                                          color: blue,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: "Poppins"),
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () {
+                                          Navigator.of(context).pushReplacement(
+                                              MaterialPageRoute(
+                                                  builder: (context) => Login(
+                                                      client: widget.client)));
+                                        })
+                                ]),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      child: Center(
-                        child: RichText(
-                          text: TextSpan(
-                              style: const TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Poppins"),
-                              children: [
-                                const TextSpan(
-                                    text: "Have an Heal&Go account? "),
-                                TextSpan(
-                                    text: "Login",
-                                    style: const TextStyle(
-                                        color: Color(0xff5f5fff),
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: "Poppins"),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(
-                                                builder: (context) => Login(
-                                                    client: widget.client)));
-                                      })
-                              ]),
-                        ),
-                      ),
-                    ),
-                    Consumer<AuthViewModel>(
+                      Consumer<AuthViewModel>(
                       builder: (_, value, child) {
                         if (value.register_status.status == Status.LOADING) {
                           if (isSubmitted) {
@@ -240,6 +230,6 @@ class RegisterState extends State<Register> {
                       },
                     )
                   ],
-                ))));
+                )));
   }
 }

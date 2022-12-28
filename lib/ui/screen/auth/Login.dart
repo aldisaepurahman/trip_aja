@@ -1,10 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:heal_and_go/data/response/Users.dart';
 import 'package:heal_and_go/data/result.dart';
+import 'package:heal_and_go/ui/components/Button.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
 import 'package:heal_and_go/ui/screen/auth/Register.dart';
 import 'package:heal_and_go/ui/Navigations.dart';
@@ -75,9 +76,7 @@ class LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Heal & Go',
-        home: Scaffold(
+    return Scaffold(
           body: ChangeNotifierProvider<AuthViewModel>(
             create: (context) => authViewModel,
             child: ListView(children: [
@@ -95,7 +94,7 @@ class LoginState extends State<Login> {
               ),
               Center(
                   child: Image.asset(
-                    "assets/images/login_illustration.jpg",
+                    "assets/images/login.png",
                     fit: BoxFit.contain,
                     height: 300,
                   )),
@@ -154,42 +153,32 @@ class LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.only(
                     top: 20, bottom: 8, left: 25, right: 25),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff5f5fff),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    padding: const EdgeInsets.all(15),
+                child:
+                  ButtonLong(
+                    content: "LOGIN",
+                    bg_color: blue,
+                    onPressed: () async {
+                      if (emailController.text.isNotEmpty &&
+                          emailController.text.contains("@") &&
+                          pwdController.text.isNotEmpty) {
+                        isSubmitted = !isSubmitted;
+                        await authViewModel.signIn(
+                            widget.client,
+                            emailController.text,
+                            pwdController.text
+                        );
+                      } else {
+                        Fluttertoast.showToast(
+                            msg: "Email & Password is required",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.black,
+                            textColor: Colors.white,
+                            fontSize: 12.0);
+                      }
+                    },
                   ),
-                  onPressed: () async {
-                    if (emailController.text.isNotEmpty &&
-                        emailController.text.contains("@") &&
-                        pwdController.text.isNotEmpty) {
-                      isSubmitted = !isSubmitted;
-                      await authViewModel.signIn(
-                          widget.client,
-                          emailController.text,
-                        pwdController.text
-                      );
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: "Email & Password is required",
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.black,
-                          textColor: Colors.white,
-                          fontSize: 12.0);
-                    }
-                  },
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      fontFamily: "poppins",
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
@@ -201,11 +190,11 @@ class LoginState extends State<Login> {
                             fontWeight: FontWeight.bold,
                             fontFamily: "Poppins"),
                         children: [
-                          const TextSpan(text: "New to Heal&Go? "),
+                          const TextSpan(text: "New to this app? "),
                           TextSpan(
                               text: "Register",
-                              style: const TextStyle(
-                                  color: Color(0xff5f5fff),
+                              style: TextStyle(
+                                  color: blue,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: "Poppins"),
                               recognizer: TapGestureRecognizer()
@@ -240,6 +229,6 @@ class LoginState extends State<Login> {
               )
             ]),
           ),
-        ));
+        );
   }
 }

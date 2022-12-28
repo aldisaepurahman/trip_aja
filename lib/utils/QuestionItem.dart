@@ -9,7 +9,7 @@ class QuestionItem {
 
 final questions = [
   QuestionItem(
-      question: "🔥 If you want to go get some healing done, who do you want to do it with ?",
+      question: "🔥 If you want to go get some healing done, who do you want to go with ?",
       choices: [
         "Travels Alone",
         "A Couple",

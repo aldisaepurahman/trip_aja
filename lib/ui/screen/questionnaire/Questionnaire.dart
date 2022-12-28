@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:heal_and_go/data/response/QuestionnaireReq.dart';
 import 'package:heal_and_go/ui/Navigations.dart';
+import 'package:heal_and_go/ui/components/Button.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
 import 'package:heal_and_go/ui/screen/questionnaire/QuestionnaireViewModel.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:heal_and_go/ui/screen/recommendation/Recommendation.dart';
 import 'package:heal_and_go/utils/QuestionItem.dart';
 import 'package:provider/provider.dart';
@@ -75,7 +77,7 @@ class _QuestionnaireState extends State<Questionnaire>
         return DialogDoubleButton(
           title: "Whoa! Take it easy",
           content: "If you are sure for your life choices, you can click the submit button below 😊",
-          path_image: "assets/images/questionmark.json",
+          path_image: "assets/images/questionmark_blue.json",
           buttonLeft: "Cancel",
           buttonRight: "Submit",
           onPressedButtonLeft: () {
@@ -173,7 +175,7 @@ class _QuestionnaireState extends State<Questionnaire>
 
     return WillPopScope(
         child: Scaffold(
-          backgroundColor: const Color(0xff5f5fff),
+          backgroundColor: blue,
           body: ChangeNotifierProvider<QuestionnaireViewModel>(
             create: (context) => questionnaireViewModel,
             child: ListView(
@@ -319,6 +321,7 @@ class _QuestionnaireState extends State<Questionnaire>
                                       ),
                                     )
                                 ),
+                                SizedBox(height: 15),
                             Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: Row(
@@ -334,13 +337,13 @@ class _QuestionnaireState extends State<Questionnaire>
                                       style: ButtonStyle(
                                           backgroundColor: MaterialStateProperty.all(Colors.white),
                                           side: MaterialStateProperty.all(
-                                              const BorderSide(color: Color(0xff5f5fff))
+                                              BorderSide(color: blue)
                                           )
                                       ),
-                                      child: const Text(
+                                      child: Text(
                                         "Previous",
                                         style: TextStyle(
-                                            color: Color(0xff5f5fff),
+                                            color: blue,
                                             fontFamily: "Poppins",
                                             fontWeight: FontWeight.bold
                                         ),

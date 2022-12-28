@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:heal_and_go/ui/Navigations.dart';
 import 'package:heal_and_go/ui/screen/auth/Login.dart';
 import 'package:heal_and_go/ui/screen/onboarding/OnboardingView.dart';
@@ -78,16 +79,16 @@ class _MyAppState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Heal and Go",
+      title: "TripAja",
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Center(
               child: Image.asset(
-                "assets/images/heal_and_go_logo.png",
+                "assets/images/trip_aja_logo.png",
                 width: 200.0,
                 height: 100.0,
                 fit: BoxFit.contain,

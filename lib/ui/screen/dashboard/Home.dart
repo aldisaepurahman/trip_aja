@@ -42,15 +42,14 @@ class HomeState extends State<Home> {
                   children: [
                     Jumbotron(client: widget.client),
                     const Padding(
-                      padding: EdgeInsets.only(left: 40.0, right: 40),
+                      padding: EdgeInsets.symmetric(horizontal: 25),
                       child: Text(
-                        "Top Pick Destination For You",
+                        "Top Destination For You",
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontFamily: "poppins",
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          decoration: TextDecoration.none,
                         ),
                       ),
                     ),
@@ -65,29 +64,29 @@ class HomeState extends State<Home> {
                           if (value.top_destination.status == Status.SUCCESS) {
                             return Container(
                                 height: 400,
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 10),
-                                  child: ListView.separated(
-                                    scrollDirection: Axis.horizontal,
-                                    itemBuilder: (context, index) {
-                                      return DestinationCard(
-                                          destinationinfo: value.top_destination.data![index],
-                                          height: 300,
-                                          onTap: () {
-                                            Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                              return DestinationDetail(
-                                                destinationInfo: value.top_destination.data![index],
-                                              );
-                                            } ));
-                                          });
-                                    },
-                                    separatorBuilder: (context, index) {
-                                      return const Divider();
-                                    },
-                                    itemCount: value.top_destination.data!.length,
-                                  ),
-                                )
+                                padding: const EdgeInsets.symmetric(horizontal: 25),
+                                child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return DestinationCard(
+                                      destinationinfo: destinationinfo[index],
+                                      height: 300,
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                          return DestinationDetail(
+                                            destinationInfo: destinationinfo[index],
+                                          );
+                                        } ));
+                                      },
+                                      paddingSize: (index == destinationinfo.length - 1) ? 0 : 20,
+                                      orientation: "horizontal",
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) {
+                                    return const Divider();
+                                  },
+                                  itemCount: value.top_destination.data!.length,
+                                ),
                             );
                           }
                           return const Center(child: Text("No Data Available"));

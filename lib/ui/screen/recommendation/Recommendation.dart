@@ -11,6 +11,7 @@ import 'package:heal_and_go/ui/components/DestinationCard.dart';
 import 'package:heal_and_go/ui/components/Dialog.dart';
 import 'package:heal_and_go/ui/screen/recommendation/RecommendationViewModel.dart';
 import 'package:heal_and_go/utils/DestinationInfo.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:heal_and_go/utils/SwipeRequest.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -195,7 +196,7 @@ class _RecommendationState extends State<Recommendation>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff5f5fff),
+      backgroundColor: blue,
       body: ChangeNotifierProvider<RecommendationViewModel>(
         create: (context) => recommendationViewModel,
         child: WillPopScope(
@@ -315,7 +316,6 @@ class _RecommendationState extends State<Recommendation>
                               builder: (context, properties) {
                                 final itemIndex = properties.index %
                                     recommendationList.length;
-
                                 return Stack(
                                   children: [
                                     Center(

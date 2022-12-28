@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 
 class MyNavigationBar extends StatefulWidget{
 
@@ -41,11 +42,16 @@ class _MyNavigationBar extends State<MyNavigationBar> {
         ],
       currentIndex: _selectedBarIcon,
       onTap: _changeBarIcon,
-      unselectedLabelStyle: const TextStyle(
-        fontFamily: "Poppins"
+      unselectedLabelStyle: TextStyle(
+        fontFamily: "Poppins",
+        color: greyFontColor,
+        fontSize: 12,
       ),
-      selectedLabelStyle: const TextStyle(
-          fontFamily: "Poppins"
+      selectedLabelStyle: TextStyle(
+        fontFamily: "Poppins",
+        color: blue,
+        fontSize: 12,
+        fontWeight: FontWeight.bold
       ),
     );
   }

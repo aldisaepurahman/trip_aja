@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/data/result.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:heal_and_go/ui/screen/dashboard/DestinationDetail.dart';
 import 'package:heal_and_go/ui/components/DestinationCard.dart';
 import 'package:heal_and_go/ui/screen/dashboard/DashboardViewModel.dart';
@@ -50,65 +51,87 @@ class DiscoverState extends State<Discover> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ChangeNotifierProvider<DashboardViewModel>(
+      body: ChangeNotifierProvider<DashboardViewModel>(
       create: (context) => dashboardViewModel,
-      child: Padding(
-          padding: const EdgeInsets.only(right: 30, left: 30, top: 40),
-          child: Column(
+      child: Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(top: 40, bottom: 10, left: 25, right: 25),
                 width: double.infinity,
                 child: const Text(
-                  'Let\'s Go',
+                  'Discover',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 36,
+                    fontSize: 28,
                     fontFamily: 'poppins',
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
-              Flexible(
-                child: TextField(
-                  textAlignVertical: TextAlignVertical.bottom,
-                  controller: keywords,
-                  onSubmitted: (value) {
-                    dashboardViewModel.discover(widget.client, value, choice);
-                  },
-                  cursorColor: Colors.grey,
-                  decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none),
-                      hintText: 'Search',
-                      hintStyle: const TextStyle(
-                        color: Colors.grey,
-                        fontSize: 18,
-                        fontFamily: 'poppins',
-                      ),
-                      prefixIcon: const SizedBox(
-                        width: 18,
-                        child: Icon(Icons.search),
-                      )),
+              Container(
+                padding: const EdgeInsets.only(bottom: 20, left: 25, right: 25),
+                width: double.infinity,
+                child: Text(
+                  'Find your next great adventure and step out of your comfort zone by discovering new, exciting destinations.',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontFamily: 'poppins',
+                    color: Colors.grey,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                child: Flexible(
+                child: SizedBox(
+                  height: 30,
+                  child: TextField(
+                    textAlignVertical: TextAlignVertical.bottom,
+                    controller: keywords,
+                    onSubmitted: (value) {
+                      dashboardViewModel.discover(widget.client, value, choice);
+                    },
+                    style: TextStyle(
+                      fontSize: 13,
+                    ),
+                    cursorColor: Colors.grey,
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide.none),
+                        hintText: 'Search',
+                        hintStyle: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 13,
+                          fontFamily: 'poppins',
+                        ),
+                        prefixIcon: const SizedBox(
+                          child: Icon(Icons.search),
+                        )
+                    ),
+                  ),
+                )
                 ),
               ),
               const SizedBox(height: 20),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: MultiSelectChip(
-                  reportList: filterList.keys.toList(),
-                  onSelectedChoice: (value) {
-                    choice = filterList[value]!;
-                    dashboardViewModel.discover(
-                        widget.client, keywords.text, choice);
-                    print(choice);
-                  },
+              Padding(
+                padding: EdgeInsets.only(left: 25),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: MultiSelectChip(
+                    categoryList: filterList.keys.toList(),
+                    onSelectedChoice: (value) {
+                      choice = filterList[value]!;
+                      dashboardViewModel.discover(
+                          widget.client, keywords.text, choice);
+                      print(choice);
+                    },
+                  ),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               Consumer<DashboardViewModel>(builder: (_, value, child) {
                 if (value.destinations_discover.status == Status.LOADING) {
                   return const Center(child: CircularProgressIndicator());
@@ -118,6 +141,7 @@ class DiscoverState extends State<Discover> {
                     return Expanded(
                       flex: 10,
                       child: GridView.builder(
+                        padding: EdgeInsets.only(left: 25),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
@@ -138,6 +162,8 @@ class DiscoverState extends State<Discover> {
                                 );
                               }));
                             },
+                            orientation: "vertical",
+                            paddingSize: 20,
                           );
                         },
                         itemCount: value.destinations_discover.data!.length,
@@ -151,8 +177,9 @@ class DiscoverState extends State<Discover> {
                 }
                 return const Center(child: Text("No Data Available"));
               }),
+              SizedBox(height: 10)
             ],
-          )),
+          ),
     ));
   }
 }

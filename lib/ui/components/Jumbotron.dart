@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heal_and_go/ui/screen/questionnaire/Questionnaire.dart';
+import 'package:heal_and_go/ui/components/Color.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Jumbotron extends StatelessWidget {
@@ -16,51 +17,46 @@ class Jumbotron extends StatelessWidget {
         width: double.infinity,
         height: 170,
         decoration: BoxDecoration(
-          color: Colors.blue,
           borderRadius: BorderRadius.circular(10),
-          gradient: const LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Colors.blue,
-              Colors.pinkAccent,
-            ]
-          )
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg_home.png'),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Feeling Stressed 🤔",
+              "Welcome, User",
               style: TextStyle(
-                  color: Colors.white,
+                  color: white,
                   fontFamily: "poppins",
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none
               ),
             ),
-            const Text(
-              "Find The Best Place To Heal",
+            SizedBox(height: 10),
+            Text(
+              "Explore The Best Travel Destination",
               style: TextStyle(
-                color: Colors.white,
+                color: white,
                 fontFamily: "poppins",
                 fontSize: 16,
-                decoration: TextDecoration.none
               ),
             ),
+            SizedBox(height: 25),
             ElevatedButton(onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => Questionnaire(client: client)));
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
-              foregroundColor: Color(0xff5f5fff),
+              foregroundColor: blue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15)
               ),
               elevation: 5.0,
-              padding: EdgeInsets.symmetric( vertical: 12.5, horizontal: 25.0)
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25.0)
             ),
             child:
               const Text(
