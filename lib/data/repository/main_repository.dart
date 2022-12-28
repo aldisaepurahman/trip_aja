@@ -88,6 +88,7 @@ class MainRepository {
           "$_baseUrl/questionnaire",
           data: req
       );
+      print("Info: ${response.toString()}");
 
       if (response == null) {
         return SystemStatus(

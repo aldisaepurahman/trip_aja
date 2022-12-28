@@ -32,7 +32,7 @@ List<RecommendationDataItem> recommendations = [
   ),
   RecommendationDataItem(
       id: '003',
-      name: 'Dufan',
+      name: 'Dunia Fantasi (Dufan)',
       category: 'Taman',
       location: 'Jakarta',
       description: 'Dufan atau disebut juga Dunia Fantasi adalah sebuah theme park yang terletak di kawasan Taman Impian Jaya Ancol, Jakarta Utara, Indonesia yang diresmikan dan dibuka untuk umum pada tanggal 29 Agustus 1985',
@@ -40,7 +40,7 @@ List<RecommendationDataItem> recommendations = [
   ),
   RecommendationDataItem(
       id: '004',
-      name: 'TMII',
+      name: 'Taman Mini Indonesia Indah (TMII)',
       category: 'Taman',
       location: 'Jakarta',
       description: 'Taman Mini Indonesia Indah merupakan suatu kawasan taman wisata bertema budaya Indonesia di Jakarta Timur. Area seluas kurang lebih 150 hektare atau 1,5 kilometer persegi ini terletak pada koordinat 6°18′6.8″LS,106°53′47.2″BT.',
@@ -75,7 +75,7 @@ List<RecommendationDataItem> destinationinfo = [
   ),
   RecommendationDataItem(
       id: '003',
-      name: 'Dufan',
+      name: 'Dunia Fantasi (Dufan)',
       category: 'Taman',
       location: 'Jakarta',
       description: 'Dufan atau disebut juga Dunia Fantasi adalah sebuah theme park yang terletak di kawasan Taman Impian Jaya Ancol, Jakarta Utara, Indonesia yang diresmikan dan dibuka untuk umum pada tanggal 29 Agustus 1985',
@@ -83,7 +83,7 @@ List<RecommendationDataItem> destinationinfo = [
   ),
   RecommendationDataItem(
       id: '004',
-      name: 'TMII',
+      name: 'Taman Mini Indonesia Indah (TMII)',
       category: 'Taman',
       location: 'Jakarta',
       description: 'Taman Mini Indonesia Indah merupakan suatu kawasan taman wisata bertema budaya Indonesia di Jakarta Timur. Area seluas kurang lebih 150 hektare atau 1,5 kilometer persegi ini terletak pada koordinat 6°18′6.8″LS,106°53′47.2″BT.',
