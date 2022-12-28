@@ -27,7 +27,7 @@ class Jumbotron extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Welcome, User",
+              "Welcome To TripAja!",
               style: TextStyle(
                   color: white,
                   fontFamily: "poppins",
