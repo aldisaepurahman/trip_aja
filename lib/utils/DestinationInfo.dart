@@ -207,7 +207,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Pantai',
     location: 'Bali',
     description: 'Nusa Penida adalah sebuah pulau bagian dari negara Republik Indonesia yang terletak di sebelah tenggara Bali yang dipisahkan oleh Selat Badung. Di dekat pulau ini terdapat juga pulau-pulau kecil lainnya yaitu Nusa Ceningan dan Nusa Lembongan.',
-    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/f5/3e/e5/nusa-penida-island.jpg?w=1200&h=-1&s=1'
+    image: 'https://asset.kompas.com/crops/YPFHJ7M2Sa1zyCJOV8oze_89lrw=/0x0:863x575/750x500/data/photo/2019/06/24/1752492170.jpg'
   ),
   RecommendationDataItem(
     name: 'Labuan Bajo',
@@ -303,7 +303,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Pantai',
     location: 'Jawa Timur',
     description: 'Pantai Kasap merupakan salah satu pantai di paitan. Secara administratif terletak di wilayah Kecamatan Pringkuku tepatnya di Dusun Ketro, Desa Watukarung. Pantai Kasap penampakannya mirip dengan Kabupaten Raja Ampat yang memiliki pulau pulau kecil di tengah laut.',
-    image: 'https://www.pantainesia.com/wp-content/uploads/2018/07/pantai-kasap.jpg'
+    image: 'https://t-2.tstatic.net/tribunnewswiki/foto/bank/images/kasap1.jpg'
   ),
   RecommendationDataItem(
     name: 'Pantai Gesing',
@@ -391,7 +391,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Taman',
     location: 'Jakarta',
     description: 'Taman Situ Lembang adalah sebuah taman kota yang terletak di pusat Jakarta. Situ berarti danau yang payau, sedangkan Lembang adalah nama jalan yang berada di dekat taman tersebut. Taman ini merupakan salah satu taman tertua di Jakarta dan memiliki danau kecil yang airnya berasal dari sumber air alam.',
-    image: 'https://www.jejakpiknik.com/wp-content/uploads/2017/09/1-@wahyu04061983-630x380.jpg'
+    image: 'https://4.bp.blogspot.com/-IUuf6rK1Xz0/XGOEsPQVqrI/AAAAAAAAf78/ovW7yY3W1HcuSXfV2MEKFoqTqKe7U0CIwCLcBGAs/s1600/lembang_2.jpg'
   ),
   RecommendationDataItem(
     name: 'Taman Sari',
@@ -639,7 +639,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Taman',
     location: 'Jakarta',
     description: 'Taman Suropati (awalnya bernama Burgemeester Bisschopplein) adalah nama sebuah taman di Jakarta. Taman Suropati menjadi sebuah taman yang penting di Jakarta karena terdapat enam monumen Perhimpunan Bangsa-Bangsa Asia Tenggara. Monumen-monumen tersebut dibuat oleh masing-masing seniman dari enam negara pendiri ASEAN.',
-    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/2a/37/82/photo5jpg.jpg?w=1200&h=-1&s=1'
+    image: 'https://statik.tempo.co/data/2013/09/03/id_215826/215826_620.jpg'
   ),
   RecommendationDataItem(
     name: 'Sky Rink, Mall Taman Anggrek',
@@ -871,7 +871,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Taman',
     location: 'Jakarta',
     description: 'Taman Spathodea meski tergolong taman baru namun sudah menjadi favorit bagi warga Jagakarsa dan sekitarnya untuk berkumpul dan berolahraga. Taman Spathodea memiliki banyak jenis tanaman yang ditanam baik pepohonan dan bunga-bunga yang menghiasi area taman.',
-    image: 'https://getlost.id/wp-content/uploads/2021/05/spathodea_1344999578.jpg'
+    image: 'https://tabloidsinartani.com/uploads/news/images/770x413/-_220322143009-363.jpg'
   ),
   RecommendationDataItem(
     name: 'Kawah Ijen',
@@ -1191,7 +1191,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Air',
     location: 'Jawa Timur',
     description: 'Air terjun Madakaripura berada di ujung lembah sempit dan berbentuk ceruk yang dikelilingi tebing-tebing curam yang meneteskan air pada seluruh bidang tebingnya seperti layaknya sedang hujan, 3 di antaranya bahkan mengucur deras membentuk air terjun lagi.',
-    image: 'https://setapaklangkah.com/wp-content/uploads/2020/10/Wisata-Air-Terjun-Madakaripura.jpg'
+    image: 'https://1.bp.blogspot.com/-BsATRJHlYD0/Xa7oYip8IQI/AAAAAAAAFYA/b17OnsHcURc1YSSdybub2cFL308D3_inQCLcBGAsYHQ/s1600/Madakaripura%2B%25282%2529.jpg'
   ),
   RecommendationDataItem(
     name: 'Pantai Klingking',
