@@ -35,7 +35,6 @@ class DestinationCard extends StatelessWidget {
         child: Container(
           width: 250,
           height: height,
-          margin: EdgeInsets.all(10),
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: NetworkImage(

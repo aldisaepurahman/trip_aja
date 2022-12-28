@@ -64,7 +64,7 @@ class HomeState extends State<Home> {
                           if (value.top_destination.status == Status.SUCCESS) {
                             return Container(
                                 height: 400,
-                                padding: const EdgeInsets.symmetric(horizontal: 25),
+                                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                                 child: ListView.separated(
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) {
