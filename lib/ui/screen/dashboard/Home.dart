@@ -69,16 +69,16 @@ class HomeState extends State<Home> {
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) {
                                     return DestinationCard(
-                                      destinationinfo: destinationinfo[index],
+                                      destinationinfo: value.top_destination.data![index],
                                       height: 300,
                                       onTap: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                                           return DestinationDetail(
-                                            destinationInfo: destinationinfo[index],
+                                            destinationInfo: value.top_destination.data![index],
                                           );
                                         } ));
                                       },
-                                      paddingSize: (index == destinationinfo.length - 1) ? 0 : 20,
+                                      paddingSize: (index == value.top_destination.data!.length - 1) ? 0 : 20,
                                       orientation: "horizontal",
                                     );
                                   },

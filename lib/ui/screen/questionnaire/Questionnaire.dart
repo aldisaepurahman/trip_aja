@@ -239,7 +239,7 @@ class _QuestionnaireState extends State<Questionnaire>
                         color: Colors.white
                     ),
                     constraints: BoxConstraints(
-                        maxHeight: MediaQuery.of(context).size.height + 50
+                        maxHeight: MediaQuery.of(context).size.height + 60
                     ),
                     child: PageView.builder(
                       controller: _controller,

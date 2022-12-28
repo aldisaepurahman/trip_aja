@@ -214,9 +214,9 @@ class _RecommendationState extends State<Recommendation>
                       child: AnimatedOpacity(
                         opacity: finished ? 1.0 : 0.0,
                         duration: const Duration(milliseconds: 500),
-                        child: Lottie.asset("assets/images/check.json",
+                        child: Lottie.asset("assets/images/check_blue.json",
                             controller: _animationController,
-                            repeat: false,
+                            repeat: true,
                             animate: true,
                             reverse: false),
                       ),
@@ -328,6 +328,8 @@ class _RecommendationState extends State<Recommendation>
                                               swipeDirection:
                                                   SwipeDirection.right);
                                         },
+                                        orientation: "vertical",
+                                        paddingSize: 0,
                                       ),
                                     )
                                   ],

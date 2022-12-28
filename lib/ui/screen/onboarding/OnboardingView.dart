@@ -58,27 +58,31 @@ class _OnboardingViewState extends State<OnboardingView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(contents[i].image),
-                      Text(
-                        contents[i].title,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "poppins",
-                          height: 1.20,
-                        ),
+                      Expanded(
+                          child: Text(
+                            contents[i].title,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "poppins",
+                              height: 1.20,
+                            ),
+                          ),
                       ),
                       const SizedBox(height: 10),
-                      Text(
-                        contents[i].description,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: greyFontColor,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.5,
-                        ),
+                      Expanded(
+                          child: Text(
+                            contents[i].description,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: greyFontColor,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
                       ),
                     ],
                   ),
