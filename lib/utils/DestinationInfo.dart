@@ -36,7 +36,7 @@ List<RecommendationDataItem> recommendations = [
       category: 'Taman',
       location: 'Jakarta',
       description: 'Dufan atau disebut juga Dunia Fantasi adalah sebuah theme park yang terletak di kawasan Taman Impian Jaya Ancol, Jakarta Utara, Indonesia yang diresmikan dan dibuka untuk umum pada tanggal 29 Agustus 1985',
-      image: 'https://www.ancol.com/shared/images/606bc34a-097b-4b33-8fcb-92247a25b2bd.jpg'
+      image: 'https://kanalwisata.com/wp-content/uploads/2022/10/dufan.jpg'
   ),
   RecommendationDataItem(
       id: '004',
@@ -127,7 +127,7 @@ List<RecommendationDataItem> destinationinfo = [
       category: 'Pantai',
       location: 'Nusa Tenggara Barat',
       description: 'Pulau Lombok adalah sebuah pulau di kepulauan Sunda Kecil atau Nusa Tenggara yang terpisahkan oleh Selat Lombok dari Bali di sebelah barat dan Selat Alas di sebelah timur dari Sumbawa. Pulau ini kurang lebih berbentuk bulat dengan semacam "ekor" di sisi barat daya yang panjangnya kurang lebih 70 km',
-      image: 'https://www.weseektravel.com/wp-content/uploads/2019/10/MAWUN-BEACH-LOMBOK-INDONESIA--712x768.jpg'
+      image: 'https://thumb.vdvc.id/antvklik/1265x711/2022/10/25/63579c0b33cee-tempat-wisata-di-lombok_antvklik.jpg'
   ),
   RecommendationDataItem(
       id: '010',
@@ -423,7 +423,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Taman',
     location: 'Jawa Barat',
     description: 'Taman Hutan Raya Ir. H. Djuanda merupakan kawasan konservasi yang terpadu antara alam sekunder dengan hutan tanaman dengan jenis Pinus yang terletak di Sub-Daerah Aliran Sungai Cikapundung.',
-    image: 'https://modernsocialmagazine.com/wp-content/uploads/2019/08/Indahnya-Taman-Hutan-Raya-Juanda.jpg'
+    image: 'https://telusuri.id/wp-content/uploads/2020/11/TAHURA-7.jpg'
   ),
   RecommendationDataItem(
     name: 'Red Island Beach',
@@ -631,7 +631,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Taman',
     location: 'Jawa Barat',
     description: 'Bukit Jamur merupakan fenomena alam yang biasa disebut Mushroom Rock, yaitu fenomena di mana batu terkikis oleh angin yang akan membawa dan membuang material-material kecil dari batu tersebut. Bukit Jamur Gresik merupakan salah satu wisata baru yang banyak dikunjungi oleh wisatawan setiap harinya.',
-    image: 'https://cdns.klimg.com/merdeka.com/i/w/news/2019/02/26/1054945/content_images/670x335/20190226121606-1-bukit-jamur-rancabolang-002-tantri-setyorini.jpg'
+    image: 'https://yourbandung.com/wp-content/uploads/2019/06/BUKITJAMUR5.jpg'
   ),
   RecommendationDataItem(
     name: 'Taman Suropati',
@@ -727,7 +727,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Air',
     location: 'Jawa Barat',
     description: 'Curug Cipanas Nagrak merupakan air terjun dengan air belerang bersuhu hangat yang bersumber dari Gunung Tangkuban Parahu. Pancaran airnya membentuk air terjun dalam kolam di bawahnya yang kemudian dibendung menjadi pemandian air panas.',
-    image: 'https://sanjayatour.com/wp-content/uploads/2020/04/Curug-Cipanas-Nagrak-Kancah-Bandung.jpg'
+    image: 'https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/09/06/3124358225.jpg'
   ),
   RecommendationDataItem(
     name: 'Candi Sewu',
@@ -823,7 +823,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Pantai',
     location: 'Yogyakarta',
     description: 'Sepanjang memiliki garis pantai yang panjang, pasir berwarna putih yang masih terjaga, dan ombak yang sedang. Anda tinggal memilih, ingin berjemur di atas pasir menikmati terik matahari, membelah ombak dengan papan selancar, ataupun hanya melihat keindahan pantai.',
-    image: 'https://tripjogja.co.id/wp-content/uploads/2018/03/pantai-sepanjang3.jpg'
+    image: 'https://eksotisjogja.com/wp-content/uploads/2016/08/pantai-sepanjang-gunungkidul.jpg'
   ),
   RecommendationDataItem(
     name: 'Museum Gunung Merapi',
@@ -1007,7 +1007,7 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Pantai',
     location: 'Nusa Tenggara Timur',
     description: 'Pink beach atau pantai pink yang berada di Labuan Bajo, Nusa Tenggara Timur, merupakan salah satu surga wisata di Indonesia. Dengan pasir yang berwarna pink dan birunya air laut, banyak wisatawan yang datang dari domestik maupun mancanegara. Warna pink pada pasirnya sendiri berasal dari butir-butir asli warna putih pasir, bercampur dengan terumbu karang berwarna merah yang sudah mati.',
-    image: 'https://amormagazine.co.uk/wp-content/uploads/2019/10/Pink-Beach-Of-Komodo-Indonesia.jpg'
+    image: 'https://awsimages.detik.net.id/community/media/visual/2021/07/05/wisata-super-prioritas-labuan-bajo_169.jpeg'
   ),
   RecommendationDataItem(
     name: 'Curug Anom',
@@ -1199,6 +1199,6 @@ List<RecommendationDataItem> destinationinfo = [
     category: 'Pantai',
     location: 'Bali',
     description: 'Bukan hanya menyuguhkan kawasan pantai berpasir putih yang menggoda, tapi juga samudera luas yang bisa dilihat dari area atas tebing. Warna laut yang biru mempesona, ombak besar menderu-deru kejauhan di pantai berbentuk jari kelingking (yang menjadi asal mula pengambilan namanya), hal tersebut akan menambah eksotisme di tempat ini.',
-    image: 'https://cdns.klimg.com/merdeka.com/i/w/news/2021/03/02/1280264/content_images/670x335/20210302130841-1-pantai-kelingking-nusa-penida-001-tyas-titi-kinapti.jpg'
+    image: 'https://asset.kompas.com/crops/RL1KP4p5n4aBY-KxPTvCQ_3_9Nk=/12x0:975x642/750x500/data/photo/2021/12/18/61bdac0b59d20.png'
   ),
 ];
