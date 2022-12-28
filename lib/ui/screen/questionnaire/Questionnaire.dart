@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:heal_and_go/data/response/QuestionnaireReq.dart';
 import 'package:heal_and_go/ui/Navigations.dart';
 import 'package:heal_and_go/ui/components/Button.dart';
@@ -27,17 +28,22 @@ class _QuestionnaireState extends State<Questionnaire>
   final _controller = PageController();
   static const _duration = Duration(milliseconds: 300);
   static const _curve = Curves.ease;
+  List<QuestionItem> question = <QuestionItem>[];
+  List<bool> validateBtn = <bool>[false, false, false, false, false, false, false, false];
 
   double growStepWidth = 0.0;
   double beginWidth = 0.0;
   double endWidth = 0.0;
   int currentPage = 0;
-  int totalPages = question.length;
+  int totalPages = 0;
   QuestionnaireViewModel questionnaireViewModel = QuestionnaireViewModel();
 
   @override
   void initState() {
     super.initState();
+    question = questions;
+    totalPages = question.length;
+    for (var i = 0; i < question.length; i++) { validateBtn[i] = false; }
 
     _progressAnimController = AnimationController(
       vsync: this,
@@ -133,13 +139,12 @@ class _QuestionnaireState extends State<Questionnaire>
     request.gender = question[6].choices.indexWhere((element) => element.contains(question[6].groupValue)).toDouble();
     request.price = question[7].choices.indexWhere((element) => element.contains(question[7].groupValue)) / 3.0;
 
+    resetForm();
     questionnaireViewModel.sendQuestionnaire(widget.client, request);
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    question.forEach((quest) {
+  void resetForm() {
+    for (var quest in question) {
       if (quest.multiple_choice) {
         quest.groupValue.forEach((pg) {
           pg = false;
@@ -148,7 +153,17 @@ class _QuestionnaireState extends State<Questionnaire>
       else {
         quest.groupValue = "";
       }
-    });
+    }
+
+    for (var i = 0; i < question.length; i++) {
+      validateBtn[i] = false;
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
@@ -268,6 +283,9 @@ class _QuestionnaireState extends State<Questionnaire>
                                         onChanged: (value) {
                                           setState(() {
                                             question[index].groupValue[i] = !question[index].groupValue[i];
+                                            if (question[index].groupValue[i]) {
+                                              validateBtn[index] = true;
+                                            }
                                           });
                                         },
                                         activeColor: Colors.deepOrange,
@@ -294,6 +312,9 @@ class _QuestionnaireState extends State<Questionnaire>
                                         onChanged: (value) {
                                           setState(() {
                                             question[index].groupValue = value;
+                                            if (question[index].groupValue != "") {
+                                              validateBtn[index] = true;
+                                            }
                                           });
                                         },
                                         activeColor: Colors.deepOrange,
@@ -330,9 +351,20 @@ class _QuestionnaireState extends State<Questionnaire>
                                     ),
                                     ElevatedButton(
                                         onPressed: () {
-                                          (currentPage < totalPages)
-                                              ? _controller.nextPage(duration: _duration, curve: _curve)
-                                              : submitWarningDialog();
+                                          if (validateBtn[index]) {
+                                            (currentPage < totalPages)
+                                                ? _controller.nextPage(duration: _duration, curve: _curve)
+                                                : submitWarningDialog();
+                                          } else {
+                                            Fluttertoast.showToast(
+                                                msg: "Make sure you have chosen your answer in this page",
+                                                toastLength: Toast.LENGTH_SHORT,
+                                                gravity: ToastGravity.BOTTOM,
+                                                timeInSecForIosWeb: 1,
+                                                backgroundColor: Colors.black,
+                                                textColor: Colors.white,
+                                                fontSize: 12.0);
+                                          }
                                         },
                                         child: Text(
                                           (currentPage < totalPages)

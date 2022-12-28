@@ -57,8 +57,13 @@ class LoginState extends State<Login> {
       builder: (context) {
         if (dialogType == 2) {
           Future.delayed(const Duration(seconds: 2), () {
+            Navigator.of(context).pop();
             Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (context) => Navigations(client: widget.client)));
+          });
+        } else if (dialogType == 3) {
+          Future.delayed(const Duration(seconds: 2), () {
+            Navigator.of(context).pop();
           });
         }
         if (dialogType > 1) {

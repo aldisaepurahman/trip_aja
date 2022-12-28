@@ -62,7 +62,9 @@ class MainRepository {
   Future<SystemStatus<List<RecommendationDataItem>>> getAllDestinations() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final List<String> response = List<String>.from(prefs.getStringList("final_result")!);
+      final String user = prefs.getString("user") ?? "";
+      Users datauser = Users.fromJson(jsonDecode(user));
+      final List<String> response = List<String>.from(prefs.getStringList("final_result_${datauser.full_name}") ?? []);
       List<RecommendationDataItem> recommend = <RecommendationDataItem>[];
 
       if (response.isNotEmpty) {
@@ -86,6 +88,7 @@ class MainRepository {
           "$_baseUrl/questionnaire",
           data: req
       );
+      print("Info: ${response.toString()}");
 
       if (response == null) {
         return SystemStatus(

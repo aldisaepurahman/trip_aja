@@ -7,7 +7,7 @@ class QuestionItem {
   QuestionItem({required this.question, required this.choices, required this.groupValue, required this.multiple_choice});
 }
 
-final question = [
+final questions = [
   QuestionItem(
       question: "🔥 If you want to go get some healing done, who do you want to go with ?",
       choices: [
