@@ -328,7 +328,7 @@ class _RecommendationState extends State<Recommendation>
                                               swipeDirection:
                                                   SwipeDirection.right);
                                         },
-                                        orientation: "vertical",
+                                        orientation: "horizontal",
                                         paddingSize: 0,
                                       ),
                                     )
