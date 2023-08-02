@@ -15,4 +15,4 @@ In this application, that have some pages and features, such as:
 - **Questionnaire**, If you want to get your recommendation, you must answer all of the questions in these features.
 - **Card Recommendations**, after you answer all of the questions, the application will give you some recommendations about the destination in the Card Stack form. You can like or dislike all of the recommendations given by the app using the button or swiping the card.
 
-Huge thanks to my beloved friends to help me in developed this application into Flutter version, [Muhammad Ilham Malik](https://www.linkedin.com/in/muh-ilham-malik/), [Hikmawati Fajriah Ayu Wardana](https://www.linkedin.com/in/hfayuwardana), [Christina Prilla Rosaria Ardyanti](https://www.linkedin.com/in/prillarosaria).
+Huge thanks to another team members in developed this application into Flutter version, [Muhammad Ilham Malik](https://www.linkedin.com/in/muh-ilham-malik/), [Hikmawati Fajriah Ayu Wardana](https://www.linkedin.com/in/hfayuwardana), [Christina Prilla Rosaria Ardyanti](https://www.linkedin.com/in/prillarosaria).
